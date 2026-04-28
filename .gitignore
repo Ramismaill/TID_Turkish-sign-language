@@ -1,0 +1,9 @@
+models/
+checkpoints/
+landmarks/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.gguf
+.cache/
