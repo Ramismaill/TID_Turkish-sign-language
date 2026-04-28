@@ -32,27 +32,22 @@ On top of the recognition pipeline, we built a sign language education platform 
 | TMS-Net | 94.70% |
 | TMS-Net + SML Ensemble | **95.13%** |
 
----
-
-## TMS-Net Architecture
-
-6 parallel feature streams processed simultaneously:
+```
 Input (64 frames × 56 nodes × 3 coords)
-│
-├── Stream 1: Joint coordinates
-├── Stream 2: Bone vectors
-├── Stream 3: Joint motion (velocity)
-├── Stream 4: Bone motion
-├── Stream 5: Joint angles
-└── Stream 6: Angle motion
-│
-Multi-Scale Temporal Convolution (3 / 7 / 13 frame kernels)
-│
-Cross-Stream Attention Fusion
-│
-Classification → 226 Turkish sign classes
-
----
+        │
+        ├── Stream 1: Joint coordinates
+        ├── Stream 2: Bone vectors
+        ├── Stream 3: Joint motion (velocity)
+        ├── Stream 4: Bone motion
+        ├── Stream 5: Joint angles
+        └── Stream 6: Angle motion
+                │
+    Multi-Scale Temporal Convolution (3 / 7 / 13 frame kernels)
+                │
+    Cross-Stream Attention Fusion
+                │
+    Classification → 226 Turkish sign classes
+```
 
 ## Education Platform
 
@@ -125,9 +120,7 @@ LLM model (download separately):
 python verify_setup.py
 ```
 
----
-
-## Repository Structure
+```
 ├── src/
 │   ├── tmsnet_model.py          # TMS-Net (6 streams, multi-scale)
 │   ├── sml_model.py             # SML model
@@ -142,11 +135,7 @@ python verify_setup.py
 ├── class_map.json               # 226 Turkish sign names
 ├── requirements.txt
 └── verify_setup.py
-
-Model checkpoints (`*.pth`) and LLM weights (`*.gguf`) are not included due to size. See installation above.
-
----
-
+```
 ## Roadmap
 
 - Avatar animation renderer — replace the skeleton with an animated character for clearer sign demonstration
