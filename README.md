@@ -32,6 +32,10 @@ On top of the recognition pipeline, we built a sign language education platform 
 | TMS-Net | 94.70% |
 | TMS-Net + SML Ensemble | **95.13%** |
 
+---
+
+## TMS-Net Architecture
+
 ```
 Input (64 frames × 56 nodes × 3 coords)
         │
@@ -48,6 +52,8 @@ Input (64 frames × 56 nodes × 3 coords)
                 │
     Classification → 226 Turkish sign classes
 ```
+
+---
 
 ## Education Platform
 
@@ -120,6 +126,10 @@ LLM model (download separately):
 python verify_setup.py
 ```
 
+---
+
+## Repository Structure
+
 ```
 ├── src/
 │   ├── tmsnet_model.py          # TMS-Net (6 streams, multi-scale)
@@ -136,6 +146,11 @@ python verify_setup.py
 ├── requirements.txt
 └── verify_setup.py
 ```
+
+Model checkpoints (`*.pth`) and LLM weights (`*.gguf`) are not included due to size. See installation above.
+
+---
+
 ## Roadmap
 
 - Avatar animation renderer — replace the skeleton with an animated character for clearer sign demonstration
