@@ -3,7 +3,7 @@
 Real-time sign language recognition and interactive learning system powered by deep learning and LLM coaching.
 
 **Authors:** Ram Ismail · Muhammet Ay  
-**University:** İstanbul Topkapı Üniversitesi — Software Engineering  
+**University:** İstanbul Topkapı Üniversitesi — AI/ML Engineering  
 **Dataset:** AUTSL (226 Turkish sign classes, 36,302 samples, 43 signers)
 
 ---
