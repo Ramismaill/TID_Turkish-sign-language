@@ -1,0 +1,26 @@
+# TID Final Project - Python Requirements (Python 3.10 + CUDA 12.1)
+# PyTorch ayri kurulur (setup_school_pc.bat icinde)
+
+# ML temel
+numpy>=1.24,<2.0
+mediapipe==0.10.11
+opencv-python==4.10.0.84
+pandas>=2.0
+scipy>=1.11
+einops>=0.7
+tqdm>=4.65
+matplotlib>=3.7
+
+# LLM + arayuz
+llama-cpp-python==0.2.90
+gradio>=4.0,<5.0
+sentencepiece>=0.1.99
+huggingface-hub>=0.20
+
+# Degerlendirme
+sacrebleu>=2.4
+dtw-python>=1.3
+
+# Yardimci
+pyyaml>=6.0
+requests>=2.31

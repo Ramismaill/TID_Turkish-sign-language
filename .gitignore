@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.conda/
+models/
+checkpoints/
+reference_landmarks/
+landmarks/
+logs/
+vize_materials/
+node_modules/
+dist/
+.env

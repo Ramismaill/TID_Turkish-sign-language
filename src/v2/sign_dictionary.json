@@ -1,0 +1,130 @@
+{
+  "_meta": {
+    "version": "1.0-prototype",
+    "description": "TID Sign Dictionary - 15 word prototype",
+    "total_words": 15,
+    "naming_format": "padded",
+    "authors": ["Ram Ismail", "Muhammet Ay"],
+    "date": "2026-05-18"
+  },
+  "merhaba": {
+    "class_idx": 173,
+    "autsl_name": "selam",
+    "reference_files": ["reference_landmarks/cls173_1.npy", "reference_landmarks/cls173_2.npy", "reference_landmarks/cls173_3.npy"],
+    "duration_ms": 1500,
+    "category": "greeting",
+    "variants": ["selam", "merhabalar", "selamun aleykum"]
+  },
+  "teşekkür ederim": {
+    "class_idx": 196,
+    "autsl_name": "tesekkur",
+    "reference_files": ["reference_landmarks/cls196_1.npy", "reference_landmarks/cls196_2.npy", "reference_landmarks/cls196_3.npy"],
+    "duration_ms": 1800,
+    "category": "politeness",
+    "variants": ["teşekkürler", "sağol", "teşekkür", "mersi"]
+  },
+  "evet": {
+    "class_idx": 65,
+    "autsl_name": "evet",
+    "reference_files": ["reference_landmarks/cls065_1.npy", "reference_landmarks/cls065_2.npy", "reference_landmarks/cls065_3.npy"],
+    "duration_ms": 1000,
+    "category": "response",
+    "variants": ["tabii", "elbette", "doğru"]
+  },
+  "hayır": {
+    "class_idx": 86,
+    "autsl_name": "hayir",
+    "reference_files": ["reference_landmarks/cls086_1.npy", "reference_landmarks/cls086_2.npy", "reference_landmarks/cls086_3.npy"],
+    "duration_ms": 1000,
+    "category": "response",
+    "variants": ["yok", "olmaz", "değil"]
+  },
+  "iyi": {
+    "class_idx": 100,
+    "autsl_name": "iyi",
+    "reference_files": ["reference_landmarks/cls100_1.npy", "reference_landmarks/cls100_2.npy", "reference_landmarks/cls100_3.npy"],
+    "duration_ms": 1200,
+    "category": "adjective",
+    "variants": ["güzel", "harika", "mükemmel"]
+  },
+  "kötü": {
+    "class_idx": 122,
+    "autsl_name": "kotu",
+    "reference_files": ["reference_landmarks/cls122_1.npy", "reference_landmarks/cls122_2.npy", "reference_landmarks/cls122_3.npy"],
+    "duration_ms": 1200,
+    "category": "adjective",
+    "variants": ["fena", "berbat"]
+  },
+  "ben": {
+    "class_idx": 30,
+    "autsl_name": "ben",
+    "reference_files": ["reference_landmarks/cls030_1.npy", "reference_landmarks/cls030_2.npy", "reference_landmarks/cls030_3.npy"],
+    "duration_ms": 800,
+    "category": "pronoun",
+    "variants": ["bana", "beni", "benim"]
+  },
+  "sen": {
+    "class_idx": 175,
+    "autsl_name": "sen",
+    "reference_files": ["reference_landmarks/cls175_1.npy", "reference_landmarks/cls175_2.npy", "reference_landmarks/cls175_3.npy"],
+    "duration_ms": 800,
+    "category": "pronoun",
+    "variants": ["sana", "seni", "senin"]
+  },
+  "seviyorum": {
+    "class_idx": 179,
+    "autsl_name": "sevmek",
+    "reference_files": ["reference_landmarks/cls179_1.npy", "reference_landmarks/cls179_2.npy", "reference_landmarks/cls179_3.npy"],
+    "duration_ms": 1500,
+    "category": "verb",
+    "variants": ["seviyor", "seveceğim", "sevdim", "sevmek", "aşk"]
+  },
+  "yardım": {
+    "class_idx": 211,
+    "autsl_name": "yardim",
+    "reference_files": ["reference_landmarks/cls211_1.npy", "reference_landmarks/cls211_2.npy", "reference_landmarks/cls211_3.npy"],
+    "duration_ms": 1400,
+    "category": "noun",
+    "variants": ["yardımcı", "destek", "imdat"]
+  },
+  "içmek": {
+    "class_idx": 94,
+    "autsl_name": "icmek",
+    "reference_files": ["reference_landmarks/cls094_1.npy", "reference_landmarks/cls094_2.npy", "reference_landmarks/cls094_3.npy"],
+    "duration_ms": 1400,
+    "category": "verb",
+    "variants": ["içiyor", "içtim", "içeceğim", "su", "içecek"]
+  },
+  "yemek": {
+    "class_idx": 217,
+    "autsl_name": "yemek",
+    "reference_files": ["reference_landmarks/cls217_1.npy", "reference_landmarks/cls217_2.npy", "reference_landmarks/cls217_3.npy"],
+    "duration_ms": 1500,
+    "category": "noun_or_verb",
+    "variants": ["yemeği", "yemekler", "yiyecek", "aş"]
+  },
+  "okul": {
+    "class_idx": 144,
+    "autsl_name": "okul",
+    "reference_files": ["reference_landmarks/cls144_1.npy", "reference_landmarks/cls144_2.npy", "reference_landmarks/cls144_3.npy"],
+    "duration_ms": 1300,
+    "category": "noun",
+    "variants": ["okula", "okulda", "okuldan", "okulu"]
+  },
+  "ev": {
+    "class_idx": 64,
+    "autsl_name": "ev",
+    "reference_files": ["reference_landmarks/cls064_1.npy", "reference_landmarks/cls064_2.npy", "reference_landmarks/cls064_3.npy"],
+    "duration_ms": 1300,
+    "category": "noun",
+    "variants": ["eve", "evde", "evden", "evi"]
+  },
+  "anne": {
+    "class_idx": 14,
+    "autsl_name": "anne",
+    "reference_files": ["reference_landmarks/cls014_1.npy", "reference_landmarks/cls014_2.npy", "reference_landmarks/cls014_3.npy"],
+    "duration_ms": 1200,
+    "category": "noun",
+    "variants": ["annem", "anneye", "anneyi", "annenin", "anneanne"]
+  }
+}
