@@ -159,8 +159,13 @@ class TextToSignPipeline:
 
     def _load_landmarks(self, canonical: str) -> Optional[np.ndarray]:
         """
-        Load and stack .npy reference files for a canonical word.
-        Returns shape (n_frames_total, 225) or None if files missing.
+        Load reference .npy files for a canonical word and return their mean.
+
+        Each file is (64, 225). We average across all available references
+        so the output is always (64, 225) — never (192, 225).
+        Averaging reduces per-recording noise while keeping a single clean sequence.
+
+        Returns shape (64, 225) float32, or None if no files found.
         """
         entry = self.dictionary.get(canonical)
         if entry is None:
@@ -170,8 +175,7 @@ class TextToSignPipeline:
         for rel_path in entry.get("reference_files", []):
             full_path = self.reference_dir.parent / rel_path  # PROJECT_ROOT / rel_path
             if full_path.exists():
-                arr = np.load(str(full_path))
-                # Normalise to 2-D: (frames, features)
+                arr = np.load(str(full_path)).astype(np.float32)
                 if arr.ndim == 1:
                     arr = arr.reshape(1, -1)
                 arrays.append(arr)
@@ -181,7 +185,9 @@ class TextToSignPipeline:
         if not arrays:
             return None
 
-        return np.vstack(arrays)
+        # All refs same shape → mean across recordings, output stays (64, 225)
+        stacked = np.stack(arrays, axis=0)   # (n_refs, 64, 225)
+        return stacked.mean(axis=0)           # (64, 225)
 
 
 # ── Smoke test ─────────────────────────────────────────────────────────────────
