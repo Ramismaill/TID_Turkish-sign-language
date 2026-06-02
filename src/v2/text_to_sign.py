@@ -159,11 +159,12 @@ class TextToSignPipeline:
 
     def _load_landmarks(self, canonical: str) -> Optional[np.ndarray]:
         """
-        Load reference .npy files for a canonical word and return their mean.
+        Load reference .npy files for a canonical word and return the FIRST one.
 
-        Each file is (64, 225). We average across all available references
-        so the output is always (64, 225) — never (192, 225).
-        Averaging reduces per-recording noise while keeping a single clean sequence.
+        Each file is (64, 225). We use a single real recording (NOT the mean of 3):
+        AUTSL's references are NOT temporally aligned, so averaging blends different
+        sign phases into an anatomically-impossible "ghost" handshape — worst for
+        finger readability (K3 decision, Day 3, two-Claude alignment).
 
         Returns shape (64, 225) float32, or None if no files found.
         """
@@ -185,9 +186,12 @@ class TextToSignPipeline:
         if not arrays:
             return None
 
-        # All refs same shape → mean across recordings, output stays (64, 225)
-        stacked = np.stack(arrays, axis=0)   # (n_refs, 64, 225)
-        return stacked.mean(axis=0)           # (64, 225)
+        # K3 (Day 3): return the FIRST available reference, NOT the mean.
+        # np.mean of temporally-unaligned refs = "ghost" handshape (worst for fingers).
+        # NOTE: do NOT git-revert b5732a8 to "undo the mean" — that restores np.vstack
+        # and the (192, 225) bug. Single-ref keeps (64, 225) cleanly.
+        # Future option: per-word medoid if a word's first ref is a bad take.
+        return arrays[0]                      # (64, 225)
 
 
 # ── Smoke test ─────────────────────────────────────────────────────────────────

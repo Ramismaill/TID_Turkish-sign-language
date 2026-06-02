@@ -2,6 +2,8 @@
 
 > **Bu dosyayı Claude'a ver:** Tüm geçmişi, kararları ve Day 4'ün tam teknik planını içerir.
 > **Tarih:** 2 Haziran 2026 | **Branch:** `feature/text-to-sign-v2` | **Son commit:** `50bd0e8`
+>
+> ⚠️ **GÜNCELLEME (2 Haz akşamı):** Bu dokümanın §5 retargeting planı (visibility:1.0 enjeksiyonu + `solve()` kullanımı) **ARTIK GÜNCEL DEĞİL.** İki Claude oturumu kaynak-doğrulamasıyla `solve()` bypass'ına (`calcArms` + `Hand.solve`) karar verdi → visibility enjeksiyonu gereksiz, calcHips skip, single-ref. **Kilitli kararlar için → `docs/Day4_Decisions_Locked.md`.**
 
 ---
 

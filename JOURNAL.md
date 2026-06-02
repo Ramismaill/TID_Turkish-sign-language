@@ -85,5 +85,23 @@ HamNoSys/SiGML (JASigning/CWASA — UEA), neural T2S (T2S-GPT, SignLLM, SignGPT)
 4. POC FIRST: one frame → inspect `rigRotation`; if limbs sane, run full sign → Day 5 GO/NO-GO.
 5. **Human task (Muhammet/Ram):** VRoid realistic export → `tid-frontend/public/avatars/avatar.vrm`.
 
+---
+
+## Day 3 (evening) — two-Claude alignment + K3 applied
+
+Muhammet's + Ram's Claude sessions exchanged **source-verified** briefs and LOCKED the Day 4 plan.
+Full record: `docs/Day4_Decisions_Locked.md`.
+
+- Verified against installed `kalidokit@1.1.5` (node_modules): off-screen guard (`es.js:838`); `calcArms`
+  is exposed (`es.js:872`), calls `rigArm` internally (`606-607`), pure relative-vector math (`589-604`).
+- **K1** bypass `solve()` → `calcArms` + `Hand.solve` (→ **visibility injection UNNECESSARY** on this path)
+  + wrist-ownership (wrist x,y from Hand.solve, twist z from calcArms.Hand.z).
+- **K2** skip `calcHips` (static torso). **K4** one avatar + confirm VRM version. **K5** pose-only POC first
+  + per-bone euler-log instrumentation; first sign = static distinct handshape.
+- **K3 APPLIED:** `_load_landmarks` now returns `arrays[0]` (single ref), NOT the mean. Test: 15/15 still
+  `(64,225)`. ⚠️ Do NOT `git revert b5732a8` to undo the mean — that restores the `np.vstack (192,225)` bug.
+
+Next: VRoid avatar → pose-only POC (`calcArms`) → arms move? → Hand.solve + wrist rule → Day 5 GO/NO-GO.
+
 **Status:** data layer clean, layout + normalization understood. Critical path is unblocked toward the
 Day 5 GO/NO-GO gate. Remaining blocker for a real avatar on screen is the VRoid export (manual).
