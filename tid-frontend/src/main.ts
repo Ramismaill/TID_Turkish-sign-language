@@ -21,10 +21,9 @@ const API_BASE = 'http://localhost:8000';
 const FPS = 30;
 const FRAME_INTERVAL_MS = 1000 / FPS;
 
-// MediaPipe Holistic landmark indices we use for arm/hand bones
-// Full map will be expanded in Day 4-5 when kalidokit retargeting is added
-const POSE_LANDMARK_COUNT = 33;
-const HAND_LANDMARK_COUNT = 21;
+// MediaPipe Holistic landmark layout (used by Day 4 retargeting):
+//   225 = 75 keypoints × 3  →  [0:33] pose · [33:54] left hand · [54:75] right hand
+//   (count constants will be (re)introduced in Day 4 where they are actually used)
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -171,7 +170,9 @@ let isPlaying = false;
 
 function applyLandmarksToPlaceholder(landmarks: number[], _frameIdx: number) {
   // Day 2: simple proof-of-concept — wiggle arms based on wrist Y coords
-  // landmarks layout: [pose(33*3)] + [face(468*3)] + [left_hand(21*3)] + [right_hand(21*3)]
+  // landmarks layout (225 = 75 keypoints × 3 — verified in src/v1/extract_landmarks.py:68):
+  //   [0:99] pose 33 · [99:162] left hand 21 · [162:225] right hand 21  (NO face)
+  //   coords are shoulder-centered (origin = midpoint of pose lm 11 & 12), range ~[-1,1]
   // We only use pose landmarks 15 (left wrist) and 16 (right wrist) for now.
 
   const poseStart = 0;
