@@ -3,7 +3,7 @@
 **Ders:** FET306 — Uygulamalı Yapay Sinir Ağları, İstanbul Topkapı Üniversitesi
 **Grup üyeleri:**
 - Ram İsmail — 24040301052
-- Muhammet Ay — 23040301147
+- Muhammet Ay — 23040301137
 
 ---
 

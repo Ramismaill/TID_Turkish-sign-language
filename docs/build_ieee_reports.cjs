@@ -174,7 +174,7 @@ function buildDoc(C, figPath) {
 const EN = {
   title: "A Bidirectional Turkish Sign Language Communication Platform: Real-Time Skeleton-Based Recognition and Faithful Landmark-Driven Sign Synthesis",
   authors: [
-    [{ t: "Ram İsmail (24040301052) and Muhammet Ay (23040301147)", s: 22 }],
+    [{ t: "Ram İsmail (24040301052) and Muhammet Ay (23040301137)", s: 22 }],
     [{ t: "Department of Software Engineering, İstanbul Topkapı University", s: 20, i: true }],
     [{ t: "FET306 — Applied Neural Networks", s: 20, i: true }],
     [{ t: "{ramismail, muhammetay}@stu.topkapi.edu.tr", s: 18, i: true }],
@@ -265,7 +265,7 @@ const EN = {
 const TR = {
   title: "Çift Yönlü Bir Türk İşaret Dili İletişim Platformu: Gerçek Zamanlı İskelet Tabanlı Tanıma ve Sadık Landmark Tabanlı İşaret Sentezi",
   authors: [
-    [{ t: "Ram İsmail (24040301052) ve Muhammet Ay (23040301147)", s: 22 }],
+    [{ t: "Ram İsmail (24040301052) ve Muhammet Ay (23040301137)", s: 22 }],
     [{ t: "Yazılım Mühendisliği Bölümü, İstanbul Topkapı Üniversitesi", s: 20, i: true }],
     [{ t: "FET306 — Uygulamalı Yapay Sinir Ağları", s: 20, i: true }],
     [{ t: "{ramismail, muhammetay}@stu.topkapi.edu.tr", s: 18, i: true }],
