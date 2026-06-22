@@ -23,8 +23,8 @@ const POSE_BONES: [number, number][] = [
   [0, 11], [0, 12],    // head(nose)→shoulders
 ];
 
-// MediaPipe hand connections (21 pts: wrist + 5 fingers × 4)
-const HAND_BONES: [number, number][] = [
+// MediaPipe hand connections (21 pts: wrist + 5 fingers × 4) — shared with EnrichedFigure
+export const HAND_BONES: [number, number][] = [
   [0, 1], [1, 2], [2, 3], [3, 4],         // thumb
   [0, 5], [5, 6], [6, 7], [7, 8],         // index
   [0, 9], [9, 10], [10, 11], [11, 12],    // middle
@@ -41,7 +41,8 @@ export interface SkeletonOpts {
   zScale: number;   // depth scaling (MediaPipe z is noisy → damp it)
   flipX: number;    // +1 or -1 (mirror)
 }
-export const DEFAULT_SKELETON_OPTS: SkeletonOpts = { scale: 1.4, yOffset: 1.2, zScale: 0.5, flipX: 1 };
+// zScale 0 = fully flat "Cin Ali" (2D): kills MediaPipe's noisy z entirely (user-approved look).
+export const DEFAULT_SKELETON_OPTS: SkeletonOpts = { scale: 1.6, yOffset: 1.3, zScale: 0, flipX: 1 };
 
 const COL_POSE  = new THREE.Color(0x5b8def);  // blue
 const COL_LEFT  = new THREE.Color(0xe24a4a);  // red
@@ -53,9 +54,15 @@ export class SkeletonFigure {
   private joints: THREE.InstancedMesh;
   private lines: THREE.LineSegments;
   private linePos: Float32Array;
+  private headCircle: THREE.LineLoop;   // "Cin Ali" head: simple circle above the nose
   private dummy = new THREE.Object3D();
   private _a = new THREE.Vector3();
   private _b = new THREE.Vector3();
+  // Hold the last good hand block per side: undetected hands (degenerate frames —
+  // 9 vocab words exceed 50%, see docs/dictionary_quality_report.md) collapse all
+  // 21 pts to the shoulder center and the hand would vanish mid-sign.
+  private lastLeft:  number[] | null = null;
+  private lastRight: number[] | null = null;
 
   constructor(opts: SkeletonOpts = DEFAULT_SKELETON_OPTS) {
     this.opts = { ...opts };
@@ -95,6 +102,18 @@ export class SkeletonFigure {
     this.lines = new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({ vertexColors: true }));
     this.lines.frustumCulled = false;
     this.group.add(this.lines);
+
+    // ── "Cin Ali" head: unit circle outline (scaled/positioned per frame from the nose) ──
+    const circlePts = Array.from({ length: 48 }, (_, i) => {
+      const t = (i / 48) * Math.PI * 2;
+      return new THREE.Vector3(Math.cos(t), Math.sin(t), 0);
+    });
+    this.headCircle = new THREE.LineLoop(
+      new THREE.BufferGeometry().setFromPoints(circlePts),
+      new THREE.LineBasicMaterial({ color: COL_POSE }),
+    );
+    this.headCircle.visible = false;   // until the first update()
+    this.group.add(this.headCircle);
   }
 
   /** Map a landmark (base offset + local index) into world space. */
@@ -115,8 +134,30 @@ export class SkeletonFigure {
     this.joints.setMatrixAt(i, this.dummy.matrix);
   }
 
+  /** Undetected hand → all 21 pts collapse to ~one coord (same test as main.ts). */
+  private static handDegenerate(flat: number[], base: number): boolean {
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (let i = 0; i < 21; i++) {
+      const x = flat[base + i * 3], y = flat[base + i * 3 + 1];
+      if (x < minX) minX = x; if (x > maxX) maxX = x;
+      if (y < minY) minY = y; if (y > maxY) maxY = y;
+    }
+    return (maxX - minX) < 0.05 && (maxY - minY) < 0.05;
+  }
+
   /** Drive the whole figure from one 225-float landmark frame. */
   update(flat: number[]) {
+    // Degenerate-hand hold: swap in the last good 63-float hand block per side
+    const leftBad = SkeletonFigure.handDegenerate(flat, 99);
+    const rightBad = SkeletonFigure.handDegenerate(flat, 162);
+    if ((leftBad && this.lastLeft) || (rightBad && this.lastRight)) {
+      flat = flat.slice();
+      if (leftBad && this.lastLeft) flat.splice(99, 63, ...this.lastLeft);
+      if (rightBad && this.lastRight) flat.splice(162, 63, ...this.lastRight);
+    }
+    if (!leftBad)  this.lastLeft = flat.slice(99, 162);
+    if (!rightBad) this.lastRight = flat.slice(162, 225);
+
     const v = this._a;
     let ji = 0;
     for (const p of POSE_JOINTS) { this.map(flat, 0, p, v); this.setJoint(ji++, v, 0.022); }
@@ -135,6 +176,13 @@ export class SkeletonFigure {
     for (const [i, j] of HAND_BONES) seg(99, i, j);
     for (const [i, j] of HAND_BONES) seg(162, i, j);
     (this.lines.geometry.getAttribute('position') as THREE.BufferAttribute).needsUpdate = true;
+
+    // Head circle: centered slightly above the nose (nose sits in the lower half of a face)
+    const r = 0.075 * this.opts.scale;
+    this.map(flat, 0, 0, v);
+    this.headCircle.position.set(v.x, v.y + r * 0.45, v.z);
+    this.headCircle.scale.setScalar(r);
+    this.headCircle.visible = true;
   }
 
   setVisible(b: boolean) { this.group.visible = b; }

@@ -30,14 +30,24 @@
             spellcheck="false"
           ></textarea>
 
-          <!-- Preset sentences -->
+          <!-- Preset sentences — her kelime sözlükte çözülür (pipeline ile doğrulandı),
+               kalite raporundaki sorunlu kelimeler (DEGEN/WEAK) kullanılmadı -->
           <div class="presets">
-            <button class="preset-btn" data-text="merhaba">merhaba</button>
-            <button class="preset-btn" data-text="teşekkür ederim">teşekkür ederim</button>
+            <button class="preset-btn" data-text="merhaba arkadaş">merhaba arkadaş</button>
             <button class="preset-btn" data-text="ben seni seviyorum">ben seni seviyorum</button>
-            <button class="preset-btn" data-text="iyi günler">iyi günler</button>
-            <button class="preset-btn" data-text="evet hayır">evet hayır</button>
+            <button class="preset-btn" data-text="teşekkür ederim öğretmen">teşekkür ederim öğretmen</button>
+            <button class="preset-btn" data-text="anne baba çay içmek">anne baba çay içmek</button>
             <button class="preset-btn" data-text="anne evde yemek">anne evde yemek</button>
+            <button class="preset-btn" data-text="yarın okul var">yarın okul var</button>
+            <button class="preset-btn" data-text="ben hasta yardım">ben hasta yardım</button>
+            <button class="preset-btn" data-text="geçmiş olsun">geçmiş olsun</button>
+            <button class="preset-btn" data-text="afiyet olsun">afiyet olsun</button>
+            <button class="preset-btn" data-text="hoşça kal">hoşça kal</button>
+            <button class="preset-btn" data-text="evet hayır tamam">evet hayır tamam</button>
+            <button class="preset-btn" data-text="dede nine misafir">dede nine misafir</button>
+            <button class="preset-btn" data-text="bayram çocuk hediye">bayram çocuk hediye</button>
+            <button class="preset-btn" data-text="süt içmek iyi">süt içmek iyi</button>
+            <button class="preset-btn" data-text="okulda kitap kalem">okulda kitap kalem</button>
           </div>
 
           <button id="play-btn">▶ Çevir &amp; Oynat</button>
@@ -53,7 +63,7 @@
 
         <!-- Vocabulary -->
         <div class="panel">
-          <h2>Sözlük (15 kelime)</h2>
+          <h2>Sözlük (<span id="vocab-count">–</span> kelime)</h2>
           <div id="vocab-list">
             <span style="color: var(--text-muted); font-size: 0.8rem;">Yükleniyor...</span>
           </div>
@@ -64,11 +74,6 @@
       <!-- 3D Canvas -->
       <div id="canvas-wrap">
         <canvas id="avatar-canvas"></canvas>
-        <div id="vrm-hint">
-          <strong>Avatar yüklemek için:</strong><br>
-          VRoid Studio'dan export edilen <code>.vrm</code> dosyasını<br>
-          <code>tid-frontend/public/avatars/avatar.vrm</code> olarak kaydet.
-        </div>
       </div>
 
     </div>

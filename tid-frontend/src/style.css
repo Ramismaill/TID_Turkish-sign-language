@@ -204,6 +204,9 @@ header .subtitle {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  max-height: 260px;     /* 226 kelime sidebar'ı yutmasın — panel içinde kaydır */
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .vocab-chip {
@@ -228,27 +231,6 @@ header .subtitle {
   width: 100%;
   height: 100%;
   display: block;
-}
-
-/* VRM hint overlay */
-
-#vrm-hint {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  max-width: 260px;
-  line-height: 1.5;
-}
-
-#vrm-hint strong {
-  color: var(--accent2);
 }
 
 /* ── Scrollbar ── */

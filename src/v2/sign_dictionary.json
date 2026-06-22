@@ -1,130 +1,2973 @@
 {
   "_meta": {
-    "version": "1.0-prototype",
+    "version": "1.1-full-autsl",
     "description": "TID Sign Dictionary - 15 word prototype",
-    "total_words": 15,
+    "total_words": 226,
     "naming_format": "padded",
-    "authors": ["Ram Ismail", "Muhammet Ay"],
-    "date": "2026-05-18"
+    "authors": [
+      "Ram Ismail",
+      "Muhammet Ay"
+    ],
+    "date": "2026-06-10",
+    "note": "15 el-yazımı girdi + class_map.json'dan otomatik genişletme (expand_dictionary.py). Otomatik girdiler: category=autsl_auto."
   },
   "merhaba": {
     "class_idx": 173,
     "autsl_name": "selam",
-    "reference_files": ["reference_landmarks/cls173_1.npy", "reference_landmarks/cls173_2.npy", "reference_landmarks/cls173_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls173_1.npy",
+      "reference_landmarks/cls173_2.npy",
+      "reference_landmarks/cls173_3.npy"
+    ],
     "duration_ms": 1500,
     "category": "greeting",
-    "variants": ["selam", "merhabalar", "selamun aleykum"]
+    "variants": [
+      "selam",
+      "merhabalar",
+      "selamun aleykum"
+    ]
   },
   "teşekkür ederim": {
     "class_idx": 196,
     "autsl_name": "tesekkur",
-    "reference_files": ["reference_landmarks/cls196_1.npy", "reference_landmarks/cls196_2.npy", "reference_landmarks/cls196_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls196_1.npy",
+      "reference_landmarks/cls196_2.npy",
+      "reference_landmarks/cls196_3.npy"
+    ],
     "duration_ms": 1800,
     "category": "politeness",
-    "variants": ["teşekkürler", "sağol", "teşekkür", "mersi"]
+    "variants": [
+      "teşekkürler",
+      "sağol",
+      "teşekkür",
+      "mersi"
+    ]
   },
   "evet": {
     "class_idx": 65,
     "autsl_name": "evet",
-    "reference_files": ["reference_landmarks/cls065_1.npy", "reference_landmarks/cls065_2.npy", "reference_landmarks/cls065_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls065_1.npy",
+      "reference_landmarks/cls065_2.npy",
+      "reference_landmarks/cls065_3.npy"
+    ],
     "duration_ms": 1000,
     "category": "response",
-    "variants": ["tabii", "elbette", "doğru"]
+    "variants": [
+      "tabii",
+      "elbette",
+      "doğru"
+    ]
   },
   "hayır": {
     "class_idx": 86,
     "autsl_name": "hayir",
-    "reference_files": ["reference_landmarks/cls086_1.npy", "reference_landmarks/cls086_2.npy", "reference_landmarks/cls086_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls086_1.npy",
+      "reference_landmarks/cls086_2.npy",
+      "reference_landmarks/cls086_3.npy"
+    ],
     "duration_ms": 1000,
     "category": "response",
-    "variants": ["yok", "olmaz", "değil"]
+    "variants": [
+      "yok",
+      "olmaz",
+      "değil"
+    ]
   },
   "iyi": {
     "class_idx": 100,
     "autsl_name": "iyi",
-    "reference_files": ["reference_landmarks/cls100_1.npy", "reference_landmarks/cls100_2.npy", "reference_landmarks/cls100_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls100_1.npy",
+      "reference_landmarks/cls100_2.npy",
+      "reference_landmarks/cls100_3.npy"
+    ],
     "duration_ms": 1200,
     "category": "adjective",
-    "variants": ["güzel", "harika", "mükemmel"]
+    "variants": [
+      "güzel",
+      "harika",
+      "mükemmel"
+    ]
   },
   "kötü": {
     "class_idx": 122,
     "autsl_name": "kotu",
-    "reference_files": ["reference_landmarks/cls122_1.npy", "reference_landmarks/cls122_2.npy", "reference_landmarks/cls122_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls122_1.npy",
+      "reference_landmarks/cls122_2.npy",
+      "reference_landmarks/cls122_3.npy"
+    ],
     "duration_ms": 1200,
     "category": "adjective",
-    "variants": ["fena", "berbat"]
+    "variants": [
+      "fena",
+      "berbat"
+    ]
   },
   "ben": {
     "class_idx": 30,
     "autsl_name": "ben",
-    "reference_files": ["reference_landmarks/cls030_1.npy", "reference_landmarks/cls030_2.npy", "reference_landmarks/cls030_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls030_1.npy",
+      "reference_landmarks/cls030_2.npy",
+      "reference_landmarks/cls030_3.npy"
+    ],
     "duration_ms": 800,
     "category": "pronoun",
-    "variants": ["bana", "beni", "benim"]
+    "variants": [
+      "bana",
+      "beni",
+      "benim"
+    ]
   },
   "sen": {
     "class_idx": 175,
     "autsl_name": "sen",
-    "reference_files": ["reference_landmarks/cls175_1.npy", "reference_landmarks/cls175_2.npy", "reference_landmarks/cls175_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls175_1.npy",
+      "reference_landmarks/cls175_2.npy",
+      "reference_landmarks/cls175_3.npy"
+    ],
     "duration_ms": 800,
     "category": "pronoun",
-    "variants": ["sana", "seni", "senin"]
+    "variants": [
+      "sana",
+      "seni",
+      "senin"
+    ]
   },
   "seviyorum": {
     "class_idx": 179,
     "autsl_name": "sevmek",
-    "reference_files": ["reference_landmarks/cls179_1.npy", "reference_landmarks/cls179_2.npy", "reference_landmarks/cls179_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls179_1.npy",
+      "reference_landmarks/cls179_2.npy",
+      "reference_landmarks/cls179_3.npy"
+    ],
     "duration_ms": 1500,
     "category": "verb",
-    "variants": ["seviyor", "seveceğim", "sevdim", "sevmek", "aşk"]
+    "variants": [
+      "seviyor",
+      "seveceğim",
+      "sevdim",
+      "sevmek",
+      "aşk"
+    ]
   },
   "yardım": {
     "class_idx": 211,
     "autsl_name": "yardim",
-    "reference_files": ["reference_landmarks/cls211_1.npy", "reference_landmarks/cls211_2.npy", "reference_landmarks/cls211_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls211_1.npy",
+      "reference_landmarks/cls211_2.npy",
+      "reference_landmarks/cls211_3.npy"
+    ],
     "duration_ms": 1400,
     "category": "noun",
-    "variants": ["yardımcı", "destek", "imdat"]
+    "variants": [
+      "yardımcı",
+      "destek",
+      "imdat"
+    ]
   },
   "içmek": {
     "class_idx": 94,
     "autsl_name": "icmek",
-    "reference_files": ["reference_landmarks/cls094_1.npy", "reference_landmarks/cls094_2.npy", "reference_landmarks/cls094_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls094_1.npy",
+      "reference_landmarks/cls094_2.npy",
+      "reference_landmarks/cls094_3.npy"
+    ],
     "duration_ms": 1400,
     "category": "verb",
-    "variants": ["içiyor", "içtim", "içeceğim", "su", "içecek"]
+    "variants": [
+      "içiyor",
+      "içtim",
+      "içeceğim",
+      "su",
+      "içecek"
+    ]
   },
   "yemek": {
     "class_idx": 217,
     "autsl_name": "yemek",
-    "reference_files": ["reference_landmarks/cls217_1.npy", "reference_landmarks/cls217_2.npy", "reference_landmarks/cls217_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls217_1.npy",
+      "reference_landmarks/cls217_2.npy",
+      "reference_landmarks/cls217_3.npy"
+    ],
     "duration_ms": 1500,
     "category": "noun_or_verb",
-    "variants": ["yemeği", "yemekler", "yiyecek", "aş"]
+    "variants": [
+      "yemeği",
+      "yemekler",
+      "yiyecek",
+      "aş"
+    ]
   },
   "okul": {
     "class_idx": 144,
     "autsl_name": "okul",
-    "reference_files": ["reference_landmarks/cls144_1.npy", "reference_landmarks/cls144_2.npy", "reference_landmarks/cls144_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls144_1.npy",
+      "reference_landmarks/cls144_2.npy",
+      "reference_landmarks/cls144_3.npy"
+    ],
     "duration_ms": 1300,
     "category": "noun",
-    "variants": ["okula", "okulda", "okuldan", "okulu"]
+    "variants": [
+      "okula",
+      "okulda",
+      "okuldan",
+      "okulu"
+    ]
   },
   "ev": {
     "class_idx": 64,
     "autsl_name": "ev",
-    "reference_files": ["reference_landmarks/cls064_1.npy", "reference_landmarks/cls064_2.npy", "reference_landmarks/cls064_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls064_1.npy",
+      "reference_landmarks/cls064_2.npy",
+      "reference_landmarks/cls064_3.npy"
+    ],
     "duration_ms": 1300,
     "category": "noun",
-    "variants": ["eve", "evde", "evden", "evi"]
+    "variants": [
+      "eve",
+      "evde",
+      "evden",
+      "evi"
+    ]
   },
   "anne": {
     "class_idx": 14,
     "autsl_name": "anne",
-    "reference_files": ["reference_landmarks/cls014_1.npy", "reference_landmarks/cls014_2.npy", "reference_landmarks/cls014_3.npy"],
+    "reference_files": [
+      "reference_landmarks/cls014_1.npy",
+      "reference_landmarks/cls014_2.npy",
+      "reference_landmarks/cls014_3.npy"
+    ],
     "duration_ms": 1200,
     "category": "noun",
-    "variants": ["annem", "anneye", "anneyi", "annenin", "anneanne"]
+    "variants": [
+      "annem",
+      "anneye",
+      "anneyi",
+      "annenin",
+      "anneanne"
+    ]
+  },
+  "abla": {
+    "class_idx": 0,
+    "autsl_name": "abla",
+    "reference_files": [
+      "reference_landmarks/cls000_1.npy",
+      "reference_landmarks/cls000_2.npy",
+      "reference_landmarks/cls000_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "acele": {
+    "class_idx": 1,
+    "autsl_name": "acele",
+    "reference_files": [
+      "reference_landmarks/cls001_1.npy",
+      "reference_landmarks/cls001_2.npy",
+      "reference_landmarks/cls001_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "acıkmak": {
+    "class_idx": 2,
+    "autsl_name": "acikmak",
+    "reference_files": [
+      "reference_landmarks/cls002_1.npy",
+      "reference_landmarks/cls002_2.npy",
+      "reference_landmarks/cls002_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "acikmak"
+    ]
+  },
+  "afiyet olsun": {
+    "class_idx": 3,
+    "autsl_name": "afiyet_olsun",
+    "reference_files": [
+      "reference_landmarks/cls003_1.npy",
+      "reference_landmarks/cls003_2.npy",
+      "reference_landmarks/cls003_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "afiyet"
+    ]
+  },
+  "ağabey": {
+    "class_idx": 4,
+    "autsl_name": "agabey",
+    "reference_files": [
+      "reference_landmarks/cls004_1.npy",
+      "reference_landmarks/cls004_2.npy",
+      "reference_landmarks/cls004_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "agabey"
+    ]
+  },
+  "ağaç": {
+    "class_idx": 5,
+    "autsl_name": "agac",
+    "reference_files": [
+      "reference_landmarks/cls005_1.npy",
+      "reference_landmarks/cls005_2.npy",
+      "reference_landmarks/cls005_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "agac"
+    ]
+  },
+  "ağır": {
+    "class_idx": 6,
+    "autsl_name": "agir",
+    "reference_files": [
+      "reference_landmarks/cls006_1.npy",
+      "reference_landmarks/cls006_2.npy",
+      "reference_landmarks/cls006_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "agir"
+    ]
+  },
+  "ağlamak": {
+    "class_idx": 7,
+    "autsl_name": "aglamak",
+    "reference_files": [
+      "reference_landmarks/cls007_1.npy",
+      "reference_landmarks/cls007_2.npy",
+      "reference_landmarks/cls007_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "aglamak"
+    ]
+  },
+  "aile": {
+    "class_idx": 8,
+    "autsl_name": "aile",
+    "reference_files": [
+      "reference_landmarks/cls008_1.npy",
+      "reference_landmarks/cls008_2.npy",
+      "reference_landmarks/cls008_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "akıllı": {
+    "class_idx": 9,
+    "autsl_name": "akilli",
+    "reference_files": [
+      "reference_landmarks/cls009_1.npy",
+      "reference_landmarks/cls009_2.npy",
+      "reference_landmarks/cls009_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "akilli"
+    ]
+  },
+  "akılsız": {
+    "class_idx": 10,
+    "autsl_name": "akilsiz",
+    "reference_files": [
+      "reference_landmarks/cls010_1.npy",
+      "reference_landmarks/cls010_2.npy",
+      "reference_landmarks/cls010_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "akilsiz"
+    ]
+  },
+  "akraba": {
+    "class_idx": 11,
+    "autsl_name": "akraba",
+    "reference_files": [
+      "reference_landmarks/cls011_1.npy",
+      "reference_landmarks/cls011_2.npy",
+      "reference_landmarks/cls011_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "alışveriş": {
+    "class_idx": 12,
+    "autsl_name": "alisveris",
+    "reference_files": [
+      "reference_landmarks/cls012_1.npy",
+      "reference_landmarks/cls012_2.npy",
+      "reference_landmarks/cls012_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "alisveris"
+    ]
+  },
+  "anahtar": {
+    "class_idx": 13,
+    "autsl_name": "anahtar",
+    "reference_files": [
+      "reference_landmarks/cls013_1.npy",
+      "reference_landmarks/cls013_2.npy",
+      "reference_landmarks/cls013_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "arkadaş": {
+    "class_idx": 15,
+    "autsl_name": "arkadas",
+    "reference_files": [
+      "reference_landmarks/cls015_1.npy",
+      "reference_landmarks/cls015_2.npy",
+      "reference_landmarks/cls015_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "arkadas"
+    ]
+  },
+  "atatürk": {
+    "class_idx": 16,
+    "autsl_name": "ataturk",
+    "reference_files": [
+      "reference_landmarks/cls016_1.npy",
+      "reference_landmarks/cls016_2.npy",
+      "reference_landmarks/cls016_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "ataturk"
+    ]
+  },
+  "ayakkabı": {
+    "class_idx": 17,
+    "autsl_name": "ayakkabi",
+    "reference_files": [
+      "reference_landmarks/cls017_1.npy",
+      "reference_landmarks/cls017_2.npy",
+      "reference_landmarks/cls017_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "ayakkabi"
+    ]
+  },
+  "ayna": {
+    "class_idx": 18,
+    "autsl_name": "ayna",
+    "reference_files": [
+      "reference_landmarks/cls018_1.npy",
+      "reference_landmarks/cls018_2.npy",
+      "reference_landmarks/cls018_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "aynı": {
+    "class_idx": 19,
+    "autsl_name": "ayni",
+    "reference_files": [
+      "reference_landmarks/cls019_1.npy",
+      "reference_landmarks/cls019_2.npy",
+      "reference_landmarks/cls019_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "ayni"
+    ]
+  },
+  "baba": {
+    "class_idx": 20,
+    "autsl_name": "baba",
+    "reference_files": [
+      "reference_landmarks/cls020_1.npy",
+      "reference_landmarks/cls020_2.npy",
+      "reference_landmarks/cls020_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bahçe": {
+    "class_idx": 21,
+    "autsl_name": "bahce",
+    "reference_files": [
+      "reference_landmarks/cls021_1.npy",
+      "reference_landmarks/cls021_2.npy",
+      "reference_landmarks/cls021_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "bahce"
+    ]
+  },
+  "bakmak": {
+    "class_idx": 22,
+    "autsl_name": "bakmak",
+    "reference_files": [
+      "reference_landmarks/cls022_1.npy",
+      "reference_landmarks/cls022_2.npy",
+      "reference_landmarks/cls022_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bal": {
+    "class_idx": 23,
+    "autsl_name": "bal",
+    "reference_files": [
+      "reference_landmarks/cls023_1.npy",
+      "reference_landmarks/cls023_2.npy",
+      "reference_landmarks/cls023_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bardak": {
+    "class_idx": 24,
+    "autsl_name": "bardak",
+    "reference_files": [
+      "reference_landmarks/cls024_1.npy",
+      "reference_landmarks/cls024_2.npy",
+      "reference_landmarks/cls024_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bayrak": {
+    "class_idx": 25,
+    "autsl_name": "bayrak",
+    "reference_files": [
+      "reference_landmarks/cls025_1.npy",
+      "reference_landmarks/cls025_2.npy",
+      "reference_landmarks/cls025_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bayram": {
+    "class_idx": 26,
+    "autsl_name": "bayram",
+    "reference_files": [
+      "reference_landmarks/cls026_1.npy",
+      "reference_landmarks/cls026_2.npy",
+      "reference_landmarks/cls026_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bebek": {
+    "class_idx": 27,
+    "autsl_name": "bebek",
+    "reference_files": [
+      "reference_landmarks/cls027_1.npy",
+      "reference_landmarks/cls027_2.npy",
+      "reference_landmarks/cls027_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bekar": {
+    "class_idx": 28,
+    "autsl_name": "bekar",
+    "reference_files": [
+      "reference_landmarks/cls028_1.npy",
+      "reference_landmarks/cls028_2.npy",
+      "reference_landmarks/cls028_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "beklemek": {
+    "class_idx": 29,
+    "autsl_name": "beklemek",
+    "reference_files": [
+      "reference_landmarks/cls029_1.npy",
+      "reference_landmarks/cls029_2.npy",
+      "reference_landmarks/cls029_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "benzin": {
+    "class_idx": 31,
+    "autsl_name": "benzin",
+    "reference_files": [
+      "reference_landmarks/cls031_1.npy",
+      "reference_landmarks/cls031_2.npy",
+      "reference_landmarks/cls031_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "beraber": {
+    "class_idx": 32,
+    "autsl_name": "beraber",
+    "reference_files": [
+      "reference_landmarks/cls032_1.npy",
+      "reference_landmarks/cls032_2.npy",
+      "reference_landmarks/cls032_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "bilgi vermek": {
+    "class_idx": 33,
+    "autsl_name": "bilgi_vermek",
+    "reference_files": [
+      "reference_landmarks/cls033_1.npy",
+      "reference_landmarks/cls033_2.npy",
+      "reference_landmarks/cls033_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "biz": {
+    "class_idx": 34,
+    "autsl_name": "biz",
+    "reference_files": [
+      "reference_landmarks/cls034_1.npy",
+      "reference_landmarks/cls034_2.npy",
+      "reference_landmarks/cls034_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "çalışmak": {
+    "class_idx": 35,
+    "autsl_name": "calismak",
+    "reference_files": [
+      "reference_landmarks/cls035_1.npy",
+      "reference_landmarks/cls035_2.npy",
+      "reference_landmarks/cls035_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "calismak"
+    ]
+  },
+  "çarşamba": {
+    "class_idx": 36,
+    "autsl_name": "carsamba",
+    "reference_files": [
+      "reference_landmarks/cls036_1.npy",
+      "reference_landmarks/cls036_2.npy",
+      "reference_landmarks/cls036_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "carsamba"
+    ]
+  },
+  "çatal": {
+    "class_idx": 37,
+    "autsl_name": "catal",
+    "reference_files": [
+      "reference_landmarks/cls037_1.npy",
+      "reference_landmarks/cls037_2.npy",
+      "reference_landmarks/cls037_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "catal"
+    ]
+  },
+  "çay": {
+    "class_idx": 38,
+    "autsl_name": "cay",
+    "reference_files": [
+      "reference_landmarks/cls038_1.npy",
+      "reference_landmarks/cls038_2.npy",
+      "reference_landmarks/cls038_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "cay"
+    ]
+  },
+  "çaydanlık": {
+    "class_idx": 39,
+    "autsl_name": "caydanlik",
+    "reference_files": [
+      "reference_landmarks/cls039_1.npy",
+      "reference_landmarks/cls039_2.npy",
+      "reference_landmarks/cls039_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "caydanlik"
+    ]
+  },
+  "çekiç": {
+    "class_idx": 40,
+    "autsl_name": "cekic",
+    "reference_files": [
+      "reference_landmarks/cls040_1.npy",
+      "reference_landmarks/cls040_2.npy",
+      "reference_landmarks/cls040_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "cekic"
+    ]
+  },
+  "çirkin": {
+    "class_idx": 41,
+    "autsl_name": "cirkin",
+    "reference_files": [
+      "reference_landmarks/cls041_1.npy",
+      "reference_landmarks/cls041_2.npy",
+      "reference_landmarks/cls041_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "cirkin"
+    ]
+  },
+  "çocuk": {
+    "class_idx": 42,
+    "autsl_name": "cocuk",
+    "reference_files": [
+      "reference_landmarks/cls042_1.npy",
+      "reference_landmarks/cls042_2.npy",
+      "reference_landmarks/cls042_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "cocuk"
+    ]
+  },
+  "çorba": {
+    "class_idx": 43,
+    "autsl_name": "corba",
+    "reference_files": [
+      "reference_landmarks/cls043_1.npy",
+      "reference_landmarks/cls043_2.npy",
+      "reference_landmarks/cls043_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "corba"
+    ]
+  },
+  "cuma": {
+    "class_idx": 44,
+    "autsl_name": "cuma",
+    "reference_files": [
+      "reference_landmarks/cls044_1.npy",
+      "reference_landmarks/cls044_2.npy",
+      "reference_landmarks/cls044_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "cumartesi": {
+    "class_idx": 45,
+    "autsl_name": "cumartesi",
+    "reference_files": [
+      "reference_landmarks/cls045_1.npy",
+      "reference_landmarks/cls045_2.npy",
+      "reference_landmarks/cls045_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "cüzdan": {
+    "class_idx": 46,
+    "autsl_name": "cuzdan",
+    "reference_files": [
+      "reference_landmarks/cls046_1.npy",
+      "reference_landmarks/cls046_2.npy",
+      "reference_landmarks/cls046_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "cuzdan"
+    ]
+  },
+  "dakika": {
+    "class_idx": 47,
+    "autsl_name": "dakika",
+    "reference_files": [
+      "reference_landmarks/cls047_1.npy",
+      "reference_landmarks/cls047_2.npy",
+      "reference_landmarks/cls047_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "dede": {
+    "class_idx": 48,
+    "autsl_name": "dede",
+    "reference_files": [
+      "reference_landmarks/cls048_1.npy",
+      "reference_landmarks/cls048_2.npy",
+      "reference_landmarks/cls048_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "değiştirmek": {
+    "class_idx": 49,
+    "autsl_name": "degistirmek",
+    "reference_files": [
+      "reference_landmarks/cls049_1.npy",
+      "reference_landmarks/cls049_2.npy",
+      "reference_landmarks/cls049_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "degistirmek"
+    ]
+  },
+  "devirmek": {
+    "class_idx": 50,
+    "autsl_name": "devirmek",
+    "reference_files": [
+      "reference_landmarks/cls050_1.npy",
+      "reference_landmarks/cls050_2.npy",
+      "reference_landmarks/cls050_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "devlet": {
+    "class_idx": 51,
+    "autsl_name": "devlet",
+    "reference_files": [
+      "reference_landmarks/cls051_1.npy",
+      "reference_landmarks/cls051_2.npy",
+      "reference_landmarks/cls051_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "doktor": {
+    "class_idx": 52,
+    "autsl_name": "doktor",
+    "reference_files": [
+      "reference_landmarks/cls052_1.npy",
+      "reference_landmarks/cls052_2.npy",
+      "reference_landmarks/cls052_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "dolu": {
+    "class_idx": 53,
+    "autsl_name": "dolu",
+    "reference_files": [
+      "reference_landmarks/cls053_1.npy",
+      "reference_landmarks/cls053_2.npy",
+      "reference_landmarks/cls053_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "düğün": {
+    "class_idx": 54,
+    "autsl_name": "dugun",
+    "reference_files": [
+      "reference_landmarks/cls054_1.npy",
+      "reference_landmarks/cls054_2.npy",
+      "reference_landmarks/cls054_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "dugun"
+    ]
+  },
+  "dün": {
+    "class_idx": 55,
+    "autsl_name": "dun",
+    "reference_files": [
+      "reference_landmarks/cls055_1.npy",
+      "reference_landmarks/cls055_2.npy",
+      "reference_landmarks/cls055_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "dun"
+    ]
+  },
+  "düşman": {
+    "class_idx": 56,
+    "autsl_name": "dusman",
+    "reference_files": [
+      "reference_landmarks/cls056_1.npy",
+      "reference_landmarks/cls056_2.npy",
+      "reference_landmarks/cls056_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "dusman"
+    ]
+  },
+  "duvar": {
+    "class_idx": 57,
+    "autsl_name": "duvar",
+    "reference_files": [
+      "reference_landmarks/cls057_1.npy",
+      "reference_landmarks/cls057_2.npy",
+      "reference_landmarks/cls057_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "eczane": {
+    "class_idx": 58,
+    "autsl_name": "eczane",
+    "reference_files": [
+      "reference_landmarks/cls058_1.npy",
+      "reference_landmarks/cls058_2.npy",
+      "reference_landmarks/cls058_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "eldiven": {
+    "class_idx": 59,
+    "autsl_name": "eldiven",
+    "reference_files": [
+      "reference_landmarks/cls059_1.npy",
+      "reference_landmarks/cls059_2.npy",
+      "reference_landmarks/cls059_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "emek": {
+    "class_idx": 60,
+    "autsl_name": "emek",
+    "reference_files": [
+      "reference_landmarks/cls060_1.npy",
+      "reference_landmarks/cls060_2.npy",
+      "reference_landmarks/cls060_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "emekli": {
+    "class_idx": 61,
+    "autsl_name": "emekli",
+    "reference_files": [
+      "reference_landmarks/cls061_1.npy",
+      "reference_landmarks/cls061_2.npy",
+      "reference_landmarks/cls061_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "erkek": {
+    "class_idx": 62,
+    "autsl_name": "erkek",
+    "reference_files": [
+      "reference_landmarks/cls062_1.npy",
+      "reference_landmarks/cls062_2.npy",
+      "reference_landmarks/cls062_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "et": {
+    "class_idx": 63,
+    "autsl_name": "et",
+    "reference_files": [
+      "reference_landmarks/cls063_1.npy",
+      "reference_landmarks/cls063_2.npy",
+      "reference_landmarks/cls063_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "evli": {
+    "class_idx": 66,
+    "autsl_name": "evli",
+    "reference_files": [
+      "reference_landmarks/cls066_1.npy",
+      "reference_landmarks/cls066_2.npy",
+      "reference_landmarks/cls066_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "ezberlemek": {
+    "class_idx": 67,
+    "autsl_name": "ezberlemek",
+    "reference_files": [
+      "reference_landmarks/cls067_1.npy",
+      "reference_landmarks/cls067_2.npy",
+      "reference_landmarks/cls067_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "fil": {
+    "class_idx": 68,
+    "autsl_name": "fil",
+    "reference_files": [
+      "reference_landmarks/cls068_1.npy",
+      "reference_landmarks/cls068_2.npy",
+      "reference_landmarks/cls068_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "fotoğraf": {
+    "class_idx": 69,
+    "autsl_name": "fotograf",
+    "reference_files": [
+      "reference_landmarks/cls069_1.npy",
+      "reference_landmarks/cls069_2.npy",
+      "reference_landmarks/cls069_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "fotograf"
+    ]
+  },
+  "futbol": {
+    "class_idx": 70,
+    "autsl_name": "futbol",
+    "reference_files": [
+      "reference_landmarks/cls070_1.npy",
+      "reference_landmarks/cls070_2.npy",
+      "reference_landmarks/cls070_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "geçmiş": {
+    "class_idx": 71,
+    "autsl_name": "gecmis",
+    "reference_files": [
+      "reference_landmarks/cls071_1.npy",
+      "reference_landmarks/cls071_2.npy",
+      "reference_landmarks/cls071_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "gecmis"
+    ]
+  },
+  "geçmiş olsun": {
+    "class_idx": 72,
+    "autsl_name": "gecmis_olsun",
+    "reference_files": [
+      "reference_landmarks/cls072_1.npy",
+      "reference_landmarks/cls072_2.npy",
+      "reference_landmarks/cls072_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "gecmis olsun"
+    ]
+  },
+  "getirmek": {
+    "class_idx": 73,
+    "autsl_name": "getirmek",
+    "reference_files": [
+      "reference_landmarks/cls073_1.npy",
+      "reference_landmarks/cls073_2.npy",
+      "reference_landmarks/cls073_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "gol": {
+    "class_idx": 74,
+    "autsl_name": "gol",
+    "reference_files": [
+      "reference_landmarks/cls074_1.npy",
+      "reference_landmarks/cls074_2.npy",
+      "reference_landmarks/cls074_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "gömlek": {
+    "class_idx": 75,
+    "autsl_name": "gomlek",
+    "reference_files": [
+      "reference_landmarks/cls075_1.npy",
+      "reference_landmarks/cls075_2.npy",
+      "reference_landmarks/cls075_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "gomlek"
+    ]
+  },
+  "görmek": {
+    "class_idx": 76,
+    "autsl_name": "gormek",
+    "reference_files": [
+      "reference_landmarks/cls076_1.npy",
+      "reference_landmarks/cls076_2.npy",
+      "reference_landmarks/cls076_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "gormek"
+    ]
+  },
+  "göstermek": {
+    "class_idx": 77,
+    "autsl_name": "gostermek",
+    "reference_files": [
+      "reference_landmarks/cls077_1.npy",
+      "reference_landmarks/cls077_2.npy",
+      "reference_landmarks/cls077_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "gostermek"
+    ]
+  },
+  "gülmek": {
+    "class_idx": 78,
+    "autsl_name": "gulmek",
+    "reference_files": [
+      "reference_landmarks/cls078_1.npy",
+      "reference_landmarks/cls078_2.npy",
+      "reference_landmarks/cls078_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "gulmek"
+    ]
+  },
+  "hafif": {
+    "class_idx": 79,
+    "autsl_name": "hafif",
+    "reference_files": [
+      "reference_landmarks/cls079_1.npy",
+      "reference_landmarks/cls079_2.npy",
+      "reference_landmarks/cls079_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "haklı": {
+    "class_idx": 80,
+    "autsl_name": "hakli",
+    "reference_files": [
+      "reference_landmarks/cls080_1.npy",
+      "reference_landmarks/cls080_2.npy",
+      "reference_landmarks/cls080_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "hakli"
+    ]
+  },
+  "halı": {
+    "class_idx": 81,
+    "autsl_name": "hali",
+    "reference_files": [
+      "reference_landmarks/cls081_1.npy",
+      "reference_landmarks/cls081_2.npy",
+      "reference_landmarks/cls081_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "hali"
+    ]
+  },
+  "hasta": {
+    "class_idx": 82,
+    "autsl_name": "hasta",
+    "reference_files": [
+      "reference_landmarks/cls082_1.npy",
+      "reference_landmarks/cls082_2.npy",
+      "reference_landmarks/cls082_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "hastane": {
+    "class_idx": 83,
+    "autsl_name": "hastane",
+    "reference_files": [
+      "reference_landmarks/cls083_1.npy",
+      "reference_landmarks/cls083_2.npy",
+      "reference_landmarks/cls083_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "hata": {
+    "class_idx": 84,
+    "autsl_name": "hata",
+    "reference_files": [
+      "reference_landmarks/cls084_1.npy",
+      "reference_landmarks/cls084_2.npy",
+      "reference_landmarks/cls084_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "havlu": {
+    "class_idx": 85,
+    "autsl_name": "havlu",
+    "reference_files": [
+      "reference_landmarks/cls085_1.npy",
+      "reference_landmarks/cls085_2.npy",
+      "reference_landmarks/cls085_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "hayırlı olsun": {
+    "class_idx": 87,
+    "autsl_name": "hayirli_olsun",
+    "reference_files": [
+      "reference_landmarks/cls087_1.npy",
+      "reference_landmarks/cls087_2.npy",
+      "reference_landmarks/cls087_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "hayirli olsun"
+    ]
+  },
+  "hayvan": {
+    "class_idx": 88,
+    "autsl_name": "hayvan",
+    "reference_files": [
+      "reference_landmarks/cls088_1.npy",
+      "reference_landmarks/cls088_2.npy",
+      "reference_landmarks/cls088_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "hediye": {
+    "class_idx": 89,
+    "autsl_name": "hediye",
+    "reference_files": [
+      "reference_landmarks/cls089_1.npy",
+      "reference_landmarks/cls089_2.npy",
+      "reference_landmarks/cls089_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "helal": {
+    "class_idx": 90,
+    "autsl_name": "helal",
+    "reference_files": [
+      "reference_landmarks/cls090_1.npy",
+      "reference_landmarks/cls090_2.npy",
+      "reference_landmarks/cls090_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "hep": {
+    "class_idx": 91,
+    "autsl_name": "hep",
+    "reference_files": [
+      "reference_landmarks/cls091_1.npy",
+      "reference_landmarks/cls091_2.npy",
+      "reference_landmarks/cls091_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "hiç": {
+    "class_idx": 92,
+    "autsl_name": "hic",
+    "reference_files": [
+      "reference_landmarks/cls092_1.npy",
+      "reference_landmarks/cls092_2.npy",
+      "reference_landmarks/cls092_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "hic"
+    ]
+  },
+  "hoşça kal": {
+    "class_idx": 93,
+    "autsl_name": "hoscakal",
+    "reference_files": [
+      "reference_landmarks/cls093_1.npy",
+      "reference_landmarks/cls093_2.npy",
+      "reference_landmarks/cls093_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "hoşçakal",
+      "hoscakal"
+    ]
+  },
+  "iğne": {
+    "class_idx": 95,
+    "autsl_name": "igne",
+    "reference_files": [
+      "reference_landmarks/cls095_1.npy",
+      "reference_landmarks/cls095_2.npy",
+      "reference_landmarks/cls095_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "igne"
+    ]
+  },
+  "ilaç": {
+    "class_idx": 96,
+    "autsl_name": "ilac",
+    "reference_files": [
+      "reference_landmarks/cls096_1.npy",
+      "reference_landmarks/cls096_2.npy",
+      "reference_landmarks/cls096_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "ilac"
+    ]
+  },
+  "ilgilenmemek": {
+    "class_idx": 97,
+    "autsl_name": "ilgilenmemek",
+    "reference_files": [
+      "reference_landmarks/cls097_1.npy",
+      "reference_landmarks/cls097_2.npy",
+      "reference_landmarks/cls097_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "ışık": {
+    "class_idx": 98,
+    "autsl_name": "isik",
+    "reference_files": [
+      "reference_landmarks/cls098_1.npy",
+      "reference_landmarks/cls098_2.npy",
+      "reference_landmarks/cls098_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "isik"
+    ]
+  },
+  "itmek": {
+    "class_idx": 99,
+    "autsl_name": "itmek",
+    "reference_files": [
+      "reference_landmarks/cls099_1.npy",
+      "reference_landmarks/cls099_2.npy",
+      "reference_landmarks/cls099_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kaçmak": {
+    "class_idx": 101,
+    "autsl_name": "kacmak",
+    "reference_files": [
+      "reference_landmarks/cls101_1.npy",
+      "reference_landmarks/cls101_2.npy",
+      "reference_landmarks/cls101_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kacmak"
+    ]
+  },
+  "kahvaltı": {
+    "class_idx": 102,
+    "autsl_name": "kahvalti",
+    "reference_files": [
+      "reference_landmarks/cls102_1.npy",
+      "reference_landmarks/cls102_2.npy",
+      "reference_landmarks/cls102_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kahvalti"
+    ]
+  },
+  "kalem": {
+    "class_idx": 103,
+    "autsl_name": "kalem",
+    "reference_files": [
+      "reference_landmarks/cls103_1.npy",
+      "reference_landmarks/cls103_2.npy",
+      "reference_landmarks/cls103_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kalorifer": {
+    "class_idx": 104,
+    "autsl_name": "kalorifer",
+    "reference_files": [
+      "reference_landmarks/cls104_1.npy",
+      "reference_landmarks/cls104_2.npy",
+      "reference_landmarks/cls104_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kapı": {
+    "class_idx": 105,
+    "autsl_name": "kapi",
+    "reference_files": [
+      "reference_landmarks/cls105_1.npy",
+      "reference_landmarks/cls105_2.npy",
+      "reference_landmarks/cls105_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kapi"
+    ]
+  },
+  "kardeş": {
+    "class_idx": 106,
+    "autsl_name": "kardes",
+    "reference_files": [
+      "reference_landmarks/cls106_1.npy",
+      "reference_landmarks/cls106_2.npy",
+      "reference_landmarks/cls106_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kardes"
+    ]
+  },
+  "kavşak": {
+    "class_idx": 107,
+    "autsl_name": "kavsak",
+    "reference_files": [
+      "reference_landmarks/cls107_1.npy",
+      "reference_landmarks/cls107_2.npy",
+      "reference_landmarks/cls107_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kavsak"
+    ]
+  },
+  "kaza": {
+    "class_idx": 108,
+    "autsl_name": "kaza",
+    "reference_files": [
+      "reference_landmarks/cls108_1.npy",
+      "reference_landmarks/cls108_2.npy",
+      "reference_landmarks/cls108_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kemer": {
+    "class_idx": 109,
+    "autsl_name": "kemer",
+    "reference_files": [
+      "reference_landmarks/cls109_1.npy",
+      "reference_landmarks/cls109_2.npy",
+      "reference_landmarks/cls109_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "keşke": {
+    "class_idx": 110,
+    "autsl_name": "keske",
+    "reference_files": [
+      "reference_landmarks/cls110_1.npy",
+      "reference_landmarks/cls110_2.npy",
+      "reference_landmarks/cls110_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "keske"
+    ]
+  },
+  "kim": {
+    "class_idx": 111,
+    "autsl_name": "kim",
+    "reference_files": [
+      "reference_landmarks/cls111_1.npy",
+      "reference_landmarks/cls111_2.npy",
+      "reference_landmarks/cls111_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kimlik": {
+    "class_idx": 112,
+    "autsl_name": "kimlik",
+    "reference_files": [
+      "reference_landmarks/cls112_1.npy",
+      "reference_landmarks/cls112_2.npy",
+      "reference_landmarks/cls112_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kira": {
+    "class_idx": 113,
+    "autsl_name": "kira",
+    "reference_files": [
+      "reference_landmarks/cls113_1.npy",
+      "reference_landmarks/cls113_2.npy",
+      "reference_landmarks/cls113_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kitap": {
+    "class_idx": 114,
+    "autsl_name": "kitap",
+    "reference_files": [
+      "reference_landmarks/cls114_1.npy",
+      "reference_landmarks/cls114_2.npy",
+      "reference_landmarks/cls114_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kıyma": {
+    "class_idx": 115,
+    "autsl_name": "kiyma",
+    "reference_files": [
+      "reference_landmarks/cls115_1.npy",
+      "reference_landmarks/cls115_2.npy",
+      "reference_landmarks/cls115_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kiyma"
+    ]
+  },
+  "kız": {
+    "class_idx": 116,
+    "autsl_name": "kiz",
+    "reference_files": [
+      "reference_landmarks/cls116_1.npy",
+      "reference_landmarks/cls116_2.npy",
+      "reference_landmarks/cls116_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kiz"
+    ]
+  },
+  "koku": {
+    "class_idx": 117,
+    "autsl_name": "koku",
+    "reference_files": [
+      "reference_landmarks/cls117_1.npy",
+      "reference_landmarks/cls117_2.npy",
+      "reference_landmarks/cls117_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kolonya": {
+    "class_idx": 118,
+    "autsl_name": "kolonya",
+    "reference_files": [
+      "reference_landmarks/cls118_1.npy",
+      "reference_landmarks/cls118_2.npy",
+      "reference_landmarks/cls118_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "kömür": {
+    "class_idx": 119,
+    "autsl_name": "komur",
+    "reference_files": [
+      "reference_landmarks/cls119_1.npy",
+      "reference_landmarks/cls119_2.npy",
+      "reference_landmarks/cls119_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "komur"
+    ]
+  },
+  "köpek": {
+    "class_idx": 120,
+    "autsl_name": "kopek",
+    "reference_files": [
+      "reference_landmarks/cls120_1.npy",
+      "reference_landmarks/cls120_2.npy",
+      "reference_landmarks/cls120_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kopek"
+    ]
+  },
+  "köprü": {
+    "class_idx": 121,
+    "autsl_name": "kopru",
+    "reference_files": [
+      "reference_landmarks/cls121_1.npy",
+      "reference_landmarks/cls121_2.npy",
+      "reference_landmarks/cls121_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "kopru"
+    ]
+  },
+  "kucak": {
+    "class_idx": 123,
+    "autsl_name": "kucak",
+    "reference_files": [
+      "reference_landmarks/cls123_1.npy",
+      "reference_landmarks/cls123_2.npy",
+      "reference_landmarks/cls123_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "leke": {
+    "class_idx": 124,
+    "autsl_name": "leke",
+    "reference_files": [
+      "reference_landmarks/cls124_1.npy",
+      "reference_landmarks/cls124_2.npy",
+      "reference_landmarks/cls124_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "maaş": {
+    "class_idx": 125,
+    "autsl_name": "maas",
+    "reference_files": [
+      "reference_landmarks/cls125_1.npy",
+      "reference_landmarks/cls125_2.npy",
+      "reference_landmarks/cls125_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "maas"
+    ]
+  },
+  "makas": {
+    "class_idx": 126,
+    "autsl_name": "makas",
+    "reference_files": [
+      "reference_landmarks/cls126_1.npy",
+      "reference_landmarks/cls126_2.npy",
+      "reference_landmarks/cls126_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "masa": {
+    "class_idx": 127,
+    "autsl_name": "masa",
+    "reference_files": [
+      "reference_landmarks/cls127_1.npy",
+      "reference_landmarks/cls127_2.npy",
+      "reference_landmarks/cls127_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "maşallah": {
+    "class_idx": 128,
+    "autsl_name": "masallah",
+    "reference_files": [
+      "reference_landmarks/cls128_1.npy",
+      "reference_landmarks/cls128_2.npy",
+      "reference_landmarks/cls128_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "masallah"
+    ]
+  },
+  "melek": {
+    "class_idx": 129,
+    "autsl_name": "melek",
+    "reference_files": [
+      "reference_landmarks/cls129_1.npy",
+      "reference_landmarks/cls129_2.npy",
+      "reference_landmarks/cls129_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "memnun olmak": {
+    "class_idx": 130,
+    "autsl_name": "memnun_olmak",
+    "reference_files": [
+      "reference_landmarks/cls130_1.npy",
+      "reference_landmarks/cls130_2.npy",
+      "reference_landmarks/cls130_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "mendil": {
+    "class_idx": 131,
+    "autsl_name": "mendil",
+    "reference_files": [
+      "reference_landmarks/cls131_1.npy",
+      "reference_landmarks/cls131_2.npy",
+      "reference_landmarks/cls131_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "merdiven": {
+    "class_idx": 132,
+    "autsl_name": "merdiven",
+    "reference_files": [
+      "reference_landmarks/cls132_1.npy",
+      "reference_landmarks/cls132_2.npy",
+      "reference_landmarks/cls132_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "misafir": {
+    "class_idx": 133,
+    "autsl_name": "misafir",
+    "reference_files": [
+      "reference_landmarks/cls133_1.npy",
+      "reference_landmarks/cls133_2.npy",
+      "reference_landmarks/cls133_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "müdür": {
+    "class_idx": 134,
+    "autsl_name": "mudur",
+    "reference_files": [
+      "reference_landmarks/cls134_1.npy",
+      "reference_landmarks/cls134_2.npy",
+      "reference_landmarks/cls134_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "mudur"
+    ]
+  },
+  "musluk": {
+    "class_idx": 135,
+    "autsl_name": "musluk",
+    "reference_files": [
+      "reference_landmarks/cls135_1.npy",
+      "reference_landmarks/cls135_2.npy",
+      "reference_landmarks/cls135_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "nasıl": {
+    "class_idx": 136,
+    "autsl_name": "nasil",
+    "reference_files": [
+      "reference_landmarks/cls136_1.npy",
+      "reference_landmarks/cls136_2.npy",
+      "reference_landmarks/cls136_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "nasil"
+    ]
+  },
+  "neden": {
+    "class_idx": 137,
+    "autsl_name": "neden",
+    "reference_files": [
+      "reference_landmarks/cls137_1.npy",
+      "reference_landmarks/cls137_2.npy",
+      "reference_landmarks/cls137_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "nerede": {
+    "class_idx": 138,
+    "autsl_name": "nerede",
+    "reference_files": [
+      "reference_landmarks/cls138_1.npy",
+      "reference_landmarks/cls138_2.npy",
+      "reference_landmarks/cls138_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "nine": {
+    "class_idx": 139,
+    "autsl_name": "nine",
+    "reference_files": [
+      "reference_landmarks/cls139_1.npy",
+      "reference_landmarks/cls139_2.npy",
+      "reference_landmarks/cls139_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "ocak": {
+    "class_idx": 140,
+    "autsl_name": "ocak",
+    "reference_files": [
+      "reference_landmarks/cls140_1.npy",
+      "reference_landmarks/cls140_2.npy",
+      "reference_landmarks/cls140_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "oda": {
+    "class_idx": 141,
+    "autsl_name": "oda",
+    "reference_files": [
+      "reference_landmarks/cls141_1.npy",
+      "reference_landmarks/cls141_2.npy",
+      "reference_landmarks/cls141_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "odun": {
+    "class_idx": 142,
+    "autsl_name": "odun",
+    "reference_files": [
+      "reference_landmarks/cls142_1.npy",
+      "reference_landmarks/cls142_2.npy",
+      "reference_landmarks/cls142_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "öğretmen": {
+    "class_idx": 143,
+    "autsl_name": "ogretmen",
+    "reference_files": [
+      "reference_landmarks/cls143_1.npy",
+      "reference_landmarks/cls143_2.npy",
+      "reference_landmarks/cls143_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "ogretmen"
+    ]
+  },
+  "olimpiyat": {
+    "class_idx": 145,
+    "autsl_name": "olimpiyat",
+    "reference_files": [
+      "reference_landmarks/cls145_1.npy",
+      "reference_landmarks/cls145_2.npy",
+      "reference_landmarks/cls145_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "olmaz": {
+    "class_idx": 146,
+    "autsl_name": "olmaz",
+    "reference_files": [
+      "reference_landmarks/cls146_1.npy",
+      "reference_landmarks/cls146_2.npy",
+      "reference_landmarks/cls146_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "olur": {
+    "class_idx": 147,
+    "autsl_name": "olur",
+    "reference_files": [
+      "reference_landmarks/cls147_1.npy",
+      "reference_landmarks/cls147_2.npy",
+      "reference_landmarks/cls147_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "onlar": {
+    "class_idx": 148,
+    "autsl_name": "onlar",
+    "reference_files": [
+      "reference_landmarks/cls148_1.npy",
+      "reference_landmarks/cls148_2.npy",
+      "reference_landmarks/cls148_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "orman": {
+    "class_idx": 149,
+    "autsl_name": "orman",
+    "reference_files": [
+      "reference_landmarks/cls149_1.npy",
+      "reference_landmarks/cls149_2.npy",
+      "reference_landmarks/cls149_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "oruç": {
+    "class_idx": 150,
+    "autsl_name": "oruc",
+    "reference_files": [
+      "reference_landmarks/cls150_1.npy",
+      "reference_landmarks/cls150_2.npy",
+      "reference_landmarks/cls150_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "oruc"
+    ]
+  },
+  "özür dilemek": {
+    "class_idx": 151,
+    "autsl_name": "ozur_dilemek",
+    "reference_files": [
+      "reference_landmarks/cls151_1.npy",
+      "reference_landmarks/cls151_2.npy",
+      "reference_landmarks/cls151_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "özür",
+      "pardon",
+      "ozur dilemek"
+    ]
+  },
+  "pamuk": {
+    "class_idx": 152,
+    "autsl_name": "pamuk",
+    "reference_files": [
+      "reference_landmarks/cls152_1.npy",
+      "reference_landmarks/cls152_2.npy",
+      "reference_landmarks/cls152_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "pantolon": {
+    "class_idx": 153,
+    "autsl_name": "pantolon",
+    "reference_files": [
+      "reference_landmarks/cls153_1.npy",
+      "reference_landmarks/cls153_2.npy",
+      "reference_landmarks/cls153_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "para": {
+    "class_idx": 154,
+    "autsl_name": "para",
+    "reference_files": [
+      "reference_landmarks/cls154_1.npy",
+      "reference_landmarks/cls154_2.npy",
+      "reference_landmarks/cls154_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "pastırma": {
+    "class_idx": 155,
+    "autsl_name": "pastirma",
+    "reference_files": [
+      "reference_landmarks/cls155_1.npy",
+      "reference_landmarks/cls155_2.npy",
+      "reference_landmarks/cls155_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "pastirma"
+    ]
+  },
+  "patates": {
+    "class_idx": 156,
+    "autsl_name": "patates",
+    "reference_files": [
+      "reference_landmarks/cls156_1.npy",
+      "reference_landmarks/cls156_2.npy",
+      "reference_landmarks/cls156_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "pazar": {
+    "class_idx": 157,
+    "autsl_name": "pazar",
+    "reference_files": [
+      "reference_landmarks/cls157_1.npy",
+      "reference_landmarks/cls157_2.npy",
+      "reference_landmarks/cls157_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "pazartesi": {
+    "class_idx": 158,
+    "autsl_name": "pazartesi",
+    "reference_files": [
+      "reference_landmarks/cls158_1.npy",
+      "reference_landmarks/cls158_2.npy",
+      "reference_landmarks/cls158_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "pencere": {
+    "class_idx": 159,
+    "autsl_name": "pencere",
+    "reference_files": [
+      "reference_landmarks/cls159_1.npy",
+      "reference_landmarks/cls159_2.npy",
+      "reference_landmarks/cls159_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "perşembe": {
+    "class_idx": 160,
+    "autsl_name": "persembe",
+    "reference_files": [
+      "reference_landmarks/cls160_1.npy",
+      "reference_landmarks/cls160_2.npy",
+      "reference_landmarks/cls160_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "persembe"
+    ]
+  },
+  "piknik": {
+    "class_idx": 161,
+    "autsl_name": "piknik",
+    "reference_files": [
+      "reference_landmarks/cls161_1.npy",
+      "reference_landmarks/cls161_2.npy",
+      "reference_landmarks/cls161_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "polis": {
+    "class_idx": 162,
+    "autsl_name": "polis",
+    "reference_files": [
+      "reference_landmarks/cls162_1.npy",
+      "reference_landmarks/cls162_2.npy",
+      "reference_landmarks/cls162_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "psikoloji": {
+    "class_idx": 163,
+    "autsl_name": "psikoloji",
+    "reference_files": [
+      "reference_landmarks/cls163_1.npy",
+      "reference_landmarks/cls163_2.npy",
+      "reference_landmarks/cls163_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "rica etmek": {
+    "class_idx": 164,
+    "autsl_name": "rica_etmek",
+    "reference_files": [
+      "reference_landmarks/cls164_1.npy",
+      "reference_landmarks/cls164_2.npy",
+      "reference_landmarks/cls164_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "rica"
+    ]
+  },
+  "saat": {
+    "class_idx": 165,
+    "autsl_name": "saat",
+    "reference_files": [
+      "reference_landmarks/cls165_1.npy",
+      "reference_landmarks/cls165_2.npy",
+      "reference_landmarks/cls165_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "sabun": {
+    "class_idx": 166,
+    "autsl_name": "sabun",
+    "reference_files": [
+      "reference_landmarks/cls166_1.npy",
+      "reference_landmarks/cls166_2.npy",
+      "reference_landmarks/cls166_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "salça": {
+    "class_idx": 167,
+    "autsl_name": "salca",
+    "reference_files": [
+      "reference_landmarks/cls167_1.npy",
+      "reference_landmarks/cls167_2.npy",
+      "reference_landmarks/cls167_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "salca"
+    ]
+  },
+  "salı": {
+    "class_idx": 168,
+    "autsl_name": "sali",
+    "reference_files": [
+      "reference_landmarks/cls168_1.npy",
+      "reference_landmarks/cls168_2.npy",
+      "reference_landmarks/cls168_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "sali"
+    ]
+  },
+  "şampiyon": {
+    "class_idx": 169,
+    "autsl_name": "sampiyon",
+    "reference_files": [
+      "reference_landmarks/cls169_1.npy",
+      "reference_landmarks/cls169_2.npy",
+      "reference_landmarks/cls169_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "sampiyon"
+    ]
+  },
+  "şapka": {
+    "class_idx": 170,
+    "autsl_name": "sapka",
+    "reference_files": [
+      "reference_landmarks/cls170_1.npy",
+      "reference_landmarks/cls170_2.npy",
+      "reference_landmarks/cls170_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "sapka"
+    ]
+  },
+  "savaş": {
+    "class_idx": 171,
+    "autsl_name": "savas",
+    "reference_files": [
+      "reference_landmarks/cls171_1.npy",
+      "reference_landmarks/cls171_2.npy",
+      "reference_landmarks/cls171_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "savas"
+    ]
+  },
+  "şeker": {
+    "class_idx": 172,
+    "autsl_name": "seker",
+    "reference_files": [
+      "reference_landmarks/cls172_1.npy",
+      "reference_landmarks/cls172_2.npy",
+      "reference_landmarks/cls172_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "seker"
+    ]
+  },
+  "şemsiye": {
+    "class_idx": 174,
+    "autsl_name": "semsiye",
+    "reference_files": [
+      "reference_landmarks/cls174_1.npy",
+      "reference_landmarks/cls174_2.npy",
+      "reference_landmarks/cls174_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "semsiye"
+    ]
+  },
+  "senet": {
+    "class_idx": 176,
+    "autsl_name": "senet",
+    "reference_files": [
+      "reference_landmarks/cls176_1.npy",
+      "reference_landmarks/cls176_2.npy",
+      "reference_landmarks/cls176_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "serbest": {
+    "class_idx": 177,
+    "autsl_name": "serbest",
+    "reference_files": [
+      "reference_landmarks/cls177_1.npy",
+      "reference_landmarks/cls177_2.npy",
+      "reference_landmarks/cls177_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "ses": {
+    "class_idx": 178,
+    "autsl_name": "ses",
+    "reference_files": [
+      "reference_landmarks/cls178_1.npy",
+      "reference_landmarks/cls178_2.npy",
+      "reference_landmarks/cls178_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "şeytan": {
+    "class_idx": 180,
+    "autsl_name": "seytan",
+    "reference_files": [
+      "reference_landmarks/cls180_1.npy",
+      "reference_landmarks/cls180_2.npy",
+      "reference_landmarks/cls180_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "seytan"
+    ]
+  },
+  "sinir": {
+    "class_idx": 181,
+    "autsl_name": "sinir",
+    "reference_files": [
+      "reference_landmarks/cls181_1.npy",
+      "reference_landmarks/cls181_2.npy",
+      "reference_landmarks/cls181_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "siz": {
+    "class_idx": 182,
+    "autsl_name": "siz",
+    "reference_files": [
+      "reference_landmarks/cls182_1.npy",
+      "reference_landmarks/cls182_2.npy",
+      "reference_landmarks/cls182_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "söylemek": {
+    "class_idx": 183,
+    "autsl_name": "soylemek",
+    "reference_files": [
+      "reference_landmarks/cls183_1.npy",
+      "reference_landmarks/cls183_2.npy",
+      "reference_landmarks/cls183_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "soylemek"
+    ]
+  },
+  "söz": {
+    "class_idx": 184,
+    "autsl_name": "soz",
+    "reference_files": [
+      "reference_landmarks/cls184_1.npy",
+      "reference_landmarks/cls184_2.npy",
+      "reference_landmarks/cls184_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "soz"
+    ]
+  },
+  "süt": {
+    "class_idx": 185,
+    "autsl_name": "sut",
+    "reference_files": [
+      "reference_landmarks/cls185_1.npy",
+      "reference_landmarks/cls185_2.npy",
+      "reference_landmarks/cls185_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "sut"
+    ]
+  },
+  "tamam": {
+    "class_idx": 186,
+    "autsl_name": "tamam",
+    "reference_files": [
+      "reference_landmarks/cls186_1.npy",
+      "reference_landmarks/cls186_2.npy",
+      "reference_landmarks/cls186_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tarak": {
+    "class_idx": 187,
+    "autsl_name": "tarak",
+    "reference_files": [
+      "reference_landmarks/cls187_1.npy",
+      "reference_landmarks/cls187_2.npy",
+      "reference_landmarks/cls187_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tarih": {
+    "class_idx": 188,
+    "autsl_name": "tarih",
+    "reference_files": [
+      "reference_landmarks/cls188_1.npy",
+      "reference_landmarks/cls188_2.npy",
+      "reference_landmarks/cls188_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tatil": {
+    "class_idx": 189,
+    "autsl_name": "tatil",
+    "reference_files": [
+      "reference_landmarks/cls189_1.npy",
+      "reference_landmarks/cls189_2.npy",
+      "reference_landmarks/cls189_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tatlı": {
+    "class_idx": 190,
+    "autsl_name": "tatli",
+    "reference_files": [
+      "reference_landmarks/cls190_1.npy",
+      "reference_landmarks/cls190_2.npy",
+      "reference_landmarks/cls190_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "tatli"
+    ]
+  },
+  "tavan": {
+    "class_idx": 191,
+    "autsl_name": "tavan",
+    "reference_files": [
+      "reference_landmarks/cls191_1.npy",
+      "reference_landmarks/cls191_2.npy",
+      "reference_landmarks/cls191_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tehlike": {
+    "class_idx": 192,
+    "autsl_name": "tehlike",
+    "reference_files": [
+      "reference_landmarks/cls192_1.npy",
+      "reference_landmarks/cls192_2.npy",
+      "reference_landmarks/cls192_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "telefon": {
+    "class_idx": 193,
+    "autsl_name": "telefon",
+    "reference_files": [
+      "reference_landmarks/cls193_1.npy",
+      "reference_landmarks/cls193_2.npy",
+      "reference_landmarks/cls193_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "terazi": {
+    "class_idx": 194,
+    "autsl_name": "terazi",
+    "reference_files": [
+      "reference_landmarks/cls194_1.npy",
+      "reference_landmarks/cls194_2.npy",
+      "reference_landmarks/cls194_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "terzi": {
+    "class_idx": 195,
+    "autsl_name": "terzi",
+    "reference_files": [
+      "reference_landmarks/cls195_1.npy",
+      "reference_landmarks/cls195_2.npy",
+      "reference_landmarks/cls195_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tornavida": {
+    "class_idx": 197,
+    "autsl_name": "tornavida",
+    "reference_files": [
+      "reference_landmarks/cls197_1.npy",
+      "reference_landmarks/cls197_2.npy",
+      "reference_landmarks/cls197_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "türkiye": {
+    "class_idx": 198,
+    "autsl_name": "turkiye",
+    "reference_files": [
+      "reference_landmarks/cls198_1.npy",
+      "reference_landmarks/cls198_2.npy",
+      "reference_landmarks/cls198_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "turkiye"
+    ]
+  },
+  "turuncu": {
+    "class_idx": 199,
+    "autsl_name": "turuncu",
+    "reference_files": [
+      "reference_landmarks/cls199_1.npy",
+      "reference_landmarks/cls199_2.npy",
+      "reference_landmarks/cls199_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "tuvalet": {
+    "class_idx": 200,
+    "autsl_name": "tuvalet",
+    "reference_files": [
+      "reference_landmarks/cls200_1.npy",
+      "reference_landmarks/cls200_2.npy",
+      "reference_landmarks/cls200_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "un": {
+    "class_idx": 201,
+    "autsl_name": "un",
+    "reference_files": [
+      "reference_landmarks/cls201_1.npy",
+      "reference_landmarks/cls201_2.npy",
+      "reference_landmarks/cls201_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "uzak": {
+    "class_idx": 202,
+    "autsl_name": "uzak",
+    "reference_files": [
+      "reference_landmarks/cls202_1.npy",
+      "reference_landmarks/cls202_2.npy",
+      "reference_landmarks/cls202_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "üzgün": {
+    "class_idx": 203,
+    "autsl_name": "uzgun",
+    "reference_files": [
+      "reference_landmarks/cls203_1.npy",
+      "reference_landmarks/cls203_2.npy",
+      "reference_landmarks/cls203_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "uzgun"
+    ]
+  },
+  "var": {
+    "class_idx": 204,
+    "autsl_name": "var",
+    "reference_files": [
+      "reference_landmarks/cls204_1.npy",
+      "reference_landmarks/cls204_2.npy",
+      "reference_landmarks/cls204_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "vergi": {
+    "class_idx": 205,
+    "autsl_name": "vergi",
+    "reference_files": [
+      "reference_landmarks/cls205_1.npy",
+      "reference_landmarks/cls205_2.npy",
+      "reference_landmarks/cls205_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yakın": {
+    "class_idx": 206,
+    "autsl_name": "yakin",
+    "reference_files": [
+      "reference_landmarks/cls206_1.npy",
+      "reference_landmarks/cls206_2.npy",
+      "reference_landmarks/cls206_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yakin"
+    ]
+  },
+  "yalnız": {
+    "class_idx": 207,
+    "autsl_name": "yalniz",
+    "reference_files": [
+      "reference_landmarks/cls207_1.npy",
+      "reference_landmarks/cls207_2.npy",
+      "reference_landmarks/cls207_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yalniz"
+    ]
+  },
+  "yanlış": {
+    "class_idx": 208,
+    "autsl_name": "yanlis",
+    "reference_files": [
+      "reference_landmarks/cls208_1.npy",
+      "reference_landmarks/cls208_2.npy",
+      "reference_landmarks/cls208_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yanlis"
+    ]
+  },
+  "yapmak": {
+    "class_idx": 209,
+    "autsl_name": "yapmak",
+    "reference_files": [
+      "reference_landmarks/cls209_1.npy",
+      "reference_landmarks/cls209_2.npy",
+      "reference_landmarks/cls209_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yara bandı": {
+    "class_idx": 210,
+    "autsl_name": "yarabandi",
+    "reference_files": [
+      "reference_landmarks/cls210_1.npy",
+      "reference_landmarks/cls210_2.npy",
+      "reference_landmarks/cls210_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yarabandı",
+      "yarabandi"
+    ]
+  },
+  "yarın": {
+    "class_idx": 212,
+    "autsl_name": "yarin",
+    "reference_files": [
+      "reference_landmarks/cls212_1.npy",
+      "reference_landmarks/cls212_2.npy",
+      "reference_landmarks/cls212_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yarin"
+    ]
+  },
+  "yasak": {
+    "class_idx": 213,
+    "autsl_name": "yasak",
+    "reference_files": [
+      "reference_landmarks/cls213_1.npy",
+      "reference_landmarks/cls213_2.npy",
+      "reference_landmarks/cls213_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yastık": {
+    "class_idx": 214,
+    "autsl_name": "yastik",
+    "reference_files": [
+      "reference_landmarks/cls214_1.npy",
+      "reference_landmarks/cls214_2.npy",
+      "reference_landmarks/cls214_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yastik"
+    ]
+  },
+  "yatak": {
+    "class_idx": 215,
+    "autsl_name": "yatak",
+    "reference_files": [
+      "reference_landmarks/cls215_1.npy",
+      "reference_landmarks/cls215_2.npy",
+      "reference_landmarks/cls215_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yavaş": {
+    "class_idx": 216,
+    "autsl_name": "yavas",
+    "reference_files": [
+      "reference_landmarks/cls216_1.npy",
+      "reference_landmarks/cls216_2.npy",
+      "reference_landmarks/cls216_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yavas"
+    ]
+  },
+  "yemek pişirmek": {
+    "class_idx": 218,
+    "autsl_name": "yemek_pisirmek",
+    "reference_files": [
+      "reference_landmarks/cls218_1.npy",
+      "reference_landmarks/cls218_2.npy",
+      "reference_landmarks/cls218_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yemek pisirmek"
+    ]
+  },
+  "yıldız": {
+    "class_idx": 219,
+    "autsl_name": "yildiz",
+    "reference_files": [
+      "reference_landmarks/cls219_1.npy",
+      "reference_landmarks/cls219_2.npy",
+      "reference_landmarks/cls219_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": [
+      "yildiz"
+    ]
+  },
+  "yok": {
+    "class_idx": 220,
+    "autsl_name": "yok",
+    "reference_files": [
+      "reference_landmarks/cls220_1.npy",
+      "reference_landmarks/cls220_2.npy",
+      "reference_landmarks/cls220_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yol": {
+    "class_idx": 221,
+    "autsl_name": "yol",
+    "reference_files": [
+      "reference_landmarks/cls221_1.npy",
+      "reference_landmarks/cls221_2.npy",
+      "reference_landmarks/cls221_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yorgun": {
+    "class_idx": 222,
+    "autsl_name": "yorgun",
+    "reference_files": [
+      "reference_landmarks/cls222_1.npy",
+      "reference_landmarks/cls222_2.npy",
+      "reference_landmarks/cls222_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "yumurta": {
+    "class_idx": 223,
+    "autsl_name": "yumurta",
+    "reference_files": [
+      "reference_landmarks/cls223_1.npy",
+      "reference_landmarks/cls223_2.npy",
+      "reference_landmarks/cls223_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "zaman": {
+    "class_idx": 224,
+    "autsl_name": "zaman",
+    "reference_files": [
+      "reference_landmarks/cls224_1.npy",
+      "reference_landmarks/cls224_2.npy",
+      "reference_landmarks/cls224_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
+  },
+  "zor": {
+    "class_idx": 225,
+    "autsl_name": "zor",
+    "reference_files": [
+      "reference_landmarks/cls225_1.npy",
+      "reference_landmarks/cls225_2.npy",
+      "reference_landmarks/cls225_3.npy"
+    ],
+    "duration_ms": 1400,
+    "category": "autsl_auto",
+    "variants": []
   }
 }

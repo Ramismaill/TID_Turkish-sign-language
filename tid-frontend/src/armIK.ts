@@ -17,7 +17,13 @@ import * as THREE from 'three';
 import type { VRM, VRMHumanBoneName } from '@pixiv/three-vrm';
 
 export interface IKOpts { fx: number; fy: number; fz: number; lerp: number; face: number; faceDist: number; gate: number; smooth: number; }
-export const DEFAULT_IK: IKOpts = { fx: 1, fy: -1, fz: -0.5, lerp: 0.6, face: 0.55, faceDist: 0.02, gate: 0.07, smooth: 0.25 };
+// face: 0 → anchor OFF by default. The 0.55 radius pulled chest-level hands to the head and
+// broke 5/6 GO/NO-GO signs; re-enable per-test with TID.ik.face = 0.55 until the smart anchor.
+// faceDist: head bone origin is the CENTER of the head — the temple is ~9cm out, so the old
+// 0.02 put the hand target inside the head mesh.
+// smooth: 0.25 lagged the target ~270ms — turned fast repetitive signs (hayır, evet)
+// to mush. 0.5 ≈ 110ms: still kills jitter, keeps the rhythm.
+export const DEFAULT_IK: IKOpts = { fx: 1, fy: -1, fz: -0.5, lerp: 0.6, face: 0, faceDist: 0.09, gate: 0.07, smooth: 0.5 };
 
 // reusable temporaries
 const _restDir = new THREE.Vector3();
@@ -32,6 +38,12 @@ const _aim = new THREE.Vector3();
 const _head = new THREE.Vector3(), _faceTgt = new THREE.Vector3(), _hd = new THREE.Vector3();
 const _identity = new THREE.Quaternion();
 const _smoothTgt: Record<string, THREE.Vector3> = {};   // per-arm smoothed target (anti-jitter)
+
+/** Clear per-arm smoothing state. Call when a NEW sign starts — otherwise the arm
+ *  glides in from the PREVIOUS sign's last target and corrupts its first frames. */
+export function resetIKState() {
+  for (const k of Object.keys(_smoothTgt)) delete _smoothTgt[k];
+}
 
 /** Rotate `bone` so its rest child-direction points along targetDirWorld. */
 function aimBone(bone: THREE.Object3D, child: THREE.Object3D, targetDirWorld: THREE.Vector3, lerp: number) {
@@ -56,6 +68,7 @@ function mapDir(flat: number[], a: number, b: number, o: IKOpts, out: THREE.Vect
 function solveArm(
   vrm: VRM, ua: string, la: string, hand: string,
   flat: number[], Si: number, Ei: number, Wi: number, o: IKOpts,
+  signerLen?: number,
 ) {
   const h = vrm.humanoid;
   const uaB = h.getNormalizedBoneNode(ua as VRMHumanBoneName);
@@ -70,10 +83,14 @@ function solveArm(
   const L2 = _elR.distanceTo(_wrR);
   const reach = L1 + L2;
 
-  // Scale signer arm → avatar reach
-  mapDir(flat, Si, Ei, o, _se);
+  // Scale signer arm → avatar reach. Use the PER-SIGN constant length when given:
+  // per-frame lengths collapse when the arm points at the camera (foreshortened x/y
+  // + damped z) → scale balloons → target overshoots. A constant keeps the wrist
+  // trajectory a uniform copy of the signer's (i.e. exactly the faithful skeleton).
+  mapDir(flat, Si, Ei, o, _se);   // still needed below as the elbow pole
   mapDir(flat, Ei, Wi, o, _ew);
-  const scale = reach / (_se.length() + _ew.length() + 1e-6);
+  const len = (signerLen && signerLen > 1e-3) ? signerLen : (_se.length() + _ew.length() + 1e-6);
+  const scale = reach / len;
 
   // Proportional wrist target
   mapDir(flat, Si, Wi, o, _sw);
@@ -137,12 +154,37 @@ function restArm(vrm: VRM, ua: string, la: string, hand: string, lerp: number) {
 export function applyArmIK(
   vrm: VRM, flat: number[], o: IKOpts = DEFAULT_IK,
   active: { left: boolean; right: boolean } = { left: true, right: true },
+  reach?: { left: number; right: number },
 ) {
-  if (active.left) solveArm(vrm, 'leftUpperArm', 'leftLowerArm', 'leftHand', flat, 11, 13, 15, o);
+  if (active.left) solveArm(vrm, 'leftUpperArm', 'leftLowerArm', 'leftHand', flat, 11, 13, 15, o, reach?.left);
   else             restArm(vrm, 'leftUpperArm', 'leftLowerArm', 'leftHand', o.lerp);
 
-  if (active.right) solveArm(vrm, 'rightUpperArm', 'rightLowerArm', 'rightHand', flat, 12, 14, 16, o);
+  if (active.right) solveArm(vrm, 'rightUpperArm', 'rightLowerArm', 'rightHand', flat, 12, 14, 16, o, reach?.right);
   else              restArm(vrm, 'rightUpperArm', 'rightLowerArm', 'rightHand', o.lerp);
+}
+
+/** Per-sign constant signer arm length (mapped space), per arm. 95th percentile of
+ *  |S→E|+|E→W| across frames ≈ the arm at its most extended, robust to noise spikes.
+ *  Underestimating slightly (arm never fully extends) only scales the whole
+ *  trajectory uniformly — shape is preserved, unlike per-frame scaling. */
+export function computeArmReach(frames: number[][], o: IKOpts): { left: number; right: number } {
+  const p95 = (a: number[]) => {
+    const s = [...a].sort((x, y) => x - y);
+    return s[Math.min(s.length - 1, Math.floor(s.length * 0.95))];
+  };
+  const chain = (f: number[], Si: number, Ei: number, Wi: number) => {
+    mapDir(f, Si, Ei, o, _se);
+    mapDir(f, Ei, Wi, o, _ew);
+    return _se.length() + _ew.length();
+  };
+  const L: number[] = [], R: number[] = [];
+  for (const f of frames) {
+    L.push(chain(f, 11, 13, 15));
+    R.push(chain(f, 12, 14, 16));
+  }
+  const out = { left: p95(L), right: p95(R) };
+  console.log(`[TID] signer arm reach  L=${out.left.toFixed(3)}  R=${out.right.toFixed(3)}  (per-sign constant)`);
+  return out;
 }
 
 /** Per-hand activity from wrist motion across a sign's frames (for rest-gating). */

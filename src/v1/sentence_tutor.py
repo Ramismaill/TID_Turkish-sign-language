@@ -29,6 +29,7 @@ import collections
 import threading
 from pathlib import Path
 
+import torch  # MUST be before llm_translator → loads CUDA runtime DLLs that llama.dll depends on
 import cv2
 import numpy as np
 import mediapipe as mp

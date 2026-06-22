@@ -18,7 +18,8 @@ import { VRMLoaderPlugin, VRM, VRMHumanBoneName } from '@pixiv/three-vrm';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Pose, Hand } from 'kalidokit';
 import { SkeletonFigure } from './skeleton';
-import { applyArmIK, computeActiveHands, DEFAULT_IK, type IKOpts } from './armIK';
+import { EnrichedFigure } from './figure';
+import { applyArmIK, computeActiveHands, computeArmReach, resetIKState, DEFAULT_IK, type IKOpts } from './armIK';
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -67,10 +68,13 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(0, 1.4, 3.0);
+// Framing for the stick figure (Gallaudet/W3C guidance: head-to-waist in frame, eyes
+// on the upper-third line, signing space ≥⅓ of the width). With scale 1.6 / yOffset 1.3
+// the figure spans roughly y 0.4..1.95 (shoulders at 1.3) — frame the whole of it.
+camera.position.set(0, 1.25, 2.55);
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 1.0, 0);
+controls.target.set(0, 1.15, 0);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.minDistance = 1.0;
@@ -146,11 +150,18 @@ const skeleton = new SkeletonFigure();
 scene.add(skeleton.group);
 (window as any).SKEL = skeleton;   // live tuning: SKEL.setOpts({ scale: 1.6, yOffset: 1.1, zScale: 0, flipX: -1 })
 
+// Enriched figure: SAME raw-landmark fidelity, volumetric/styled body (primary renderer).
+const figure = new EnrichedFigure();
+scene.add(figure.group);
+(window as any).FIG = figure;      // live tuning: FIG.setOpts({ scale: 1.5, yOffset: 1.15 })
+
 function updateModeVisibility() {
   const isSkel = TID.mode === 'skeleton';
+  const isFig  = TID.mode === 'figure';
   skeleton.setVisible(isSkel);
-  placeholder.visible = !isSkel && !vrm;
-  if (vrm) vrm.scene.visible = !isSkel;
+  figure.setVisible(isFig);
+  placeholder.visible = !isSkel && !isFig && !vrm;
+  if (vrm) vrm.scene.visible = !isSkel && !isFig;
 }
 
 // Try loading real VRM
@@ -219,6 +230,7 @@ let lastFrameTime = 0;
 let isPlaying = false;
 let signStartTs = 0;   // for frame-ticker timing log (Blocker 2 diagnostic)
 let currentActiveHands = { left: true, right: true };   // which hands the IK drives (rest the other)
+let currentArmReach: { left: number; right: number } | undefined;   // per-sign constant signer arm length
 
 // ── Day 4: Kalidokit retargeting infrastructure ──────────────────────────────
 // Architecture: docs/Day4_Decisions_Locked.md (K1–K5, two-Claude alignment)
@@ -376,7 +388,7 @@ interface TIDTuning {
   testCurl: number | null;                    // if set, force ALL fingers to this curl (axis test)
   loop: boolean;
   eulerLog: boolean;
-  mode: 'vrm' | 'skeleton' | 'ik';            // 'skeleton'=raw landmarks · 'ik'=position-based arm IK
+  mode: 'vrm' | 'skeleton' | 'ik' | 'figure'; // 'figure'=volumetric raw-landmark character (primary) · 'skeleton'=debug lines · 'ik'/'vrm'=VRM research track
   ik: IKOpts;                                 // tunable landmark→world axis mapping for IK arms
   reset?: () => void;
 }
@@ -392,7 +404,7 @@ const TID: TIDTuning = (window.TID = window.TID || {
   testCurl: null,
   loop: false,
   eulerLog: false,
-  mode: 'ik',         // testing approach B (position-based arm IK); 'skeleton'/'vrm' to compare
+  mode: 'skeleton',   // PRIMARY: faithful stick figure ("Cin Ali"). 'ik'/'vrm' = avatar research track, 'figure' = volumetric (rejected)
   ik: { ...DEFAULT_IK },
 });
 
@@ -565,15 +577,21 @@ function tickAnimation(timestamp: number) {
   if (timestamp - lastFrameTime >= FRAME_INTERVAL_MS) {
     if (currentFrame === 0) {
       signStartTs = timestamp;
+      resetIKState();            // don't glide in from the PREVIOUS sign's last arm target
+      lastLeftHandRig = null;    // don't leak the previous word's handshape into this
+      lastRightHandRig = null;   //   word's degenerate frames
       currentActiveHands = computeActiveHands(currentSign.landmarks, TID.ik.gate);
+      currentArmReach = computeArmReach(currentSign.landmarks, TID.ik);
       console.log(`[TID] '${currentSign.word}' active hands:`, currentActiveHands);
     }
     const frame = currentSign.landmarks[currentFrame];
     if (frame) {
-      if (TID.mode === 'skeleton') {
+      if (TID.mode === 'figure') {
+        figure.update(frame);                         // faithful + volumetric (primary)
+      } else if (TID.mode === 'skeleton') {
         skeleton.update(frame);                       // faithful: draw raw landmarks directly
       } else if (vrm) {
-        if (TID.mode === 'ik') applyArmIK(vrm, frame, TID.ik, currentActiveHands);   // position-based arms (B)
+        if (TID.mode === 'ik') applyArmIK(vrm, frame, TID.ik, currentActiveHands, currentArmReach);   // position-based arms (B)
         applyLandmarksToVRM(vrm, frame, TID.mode === 'ik' ? currentActiveHands : undefined);   // wrist+fingers (skips resting hand)
         vrm.update(FRAME_INTERVAL_MS / 1000);
       } else {
@@ -651,6 +669,8 @@ function updateWordDisplay(word: string) {
 }
 
 function renderVocabList(words: string[]) {
+  const countEl = document.getElementById('vocab-count');
+  if (countEl) countEl.textContent = String(words.length);
   const el = document.getElementById('vocab-list')!;
   el.innerHTML = words
     .map(w => `<span class="vocab-chip">${w}</span>`)
