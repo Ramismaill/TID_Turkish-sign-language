@@ -24,7 +24,7 @@ import { applyArmIK, computeActiveHands, computeArmReach, resetIKState, DEFAULT_
 // ── Config ────────────────────────────────────────────────────────────────────
 
 const API_BASE = 'http://localhost:8000';
-const FPS = 30;
+const FPS = 45;
 const FRAME_INTERVAL_MS = 1000 / FPS;
 
 // Landmark layout (verified: src/v1/extract_landmarks.py:68):
@@ -79,6 +79,10 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.minDistance = 1.0;
 controls.maxDistance = 6.0;
+// 2D faithful skeleton: no 3D orbit/pan — clicking must not rotate or drag the view.
+// Mouse wheel zoom stays enabled (harmless). Set enableZoom=false to lock fully.
+controls.enableRotate = false;
+controls.enablePan = false;
 controls.update();
 
 // Lighting

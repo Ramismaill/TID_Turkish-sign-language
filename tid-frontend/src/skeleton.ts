@@ -58,6 +58,10 @@ export class SkeletonFigure {
   private dummy = new THREE.Object3D();
   private _a = new THREE.Vector3();
   private _b = new THREE.Vector3();
+  // Per-frame shoulder-midpoint offset: subtracted from every landmark so the
+  // figure is re-centered each frame and never drifts left/right/up (always centered).
+  private cx = 0;
+  private cy = 0;
   // Hold the last good hand block per side: undetected hands (degenerate frames —
   // 9 vocab words exceed 50%, see docs/dictionary_quality_report.md) collapse all
   // 21 pts to the shoulder center and the hand would vanish mid-sign.
@@ -120,8 +124,8 @@ export class SkeletonFigure {
   private map(flat: number[], base: number, i: number, out: THREE.Vector3) {
     const o = base + i * 3;
     out.set(
-      flat[o] * this.opts.scale * this.opts.flipX,
-      -flat[o + 1] * this.opts.scale + this.opts.yOffset,  // flip y: image-down → world-up
+      (flat[o] - this.cx) * this.opts.scale * this.opts.flipX,
+      -(flat[o + 1] - this.cy) * this.opts.scale + this.opts.yOffset,  // flip y: image-down → world-up
       -flat[o + 2] * this.opts.scale * this.opts.zScale,
     );
   }
@@ -157,6 +161,11 @@ export class SkeletonFigure {
     }
     if (!leftBad)  this.lastLeft = flat.slice(99, 162);
     if (!rightBad) this.lastRight = flat.slice(162, 225);
+
+    // Re-center on the shoulder midpoint (pose landmarks 11 & 12) every frame so the
+    // whole figure stays put — no horizontal/vertical drift between or within signs.
+    this.cx = (flat[33] + flat[36]) / 2;   // (11.x + 12.x) / 2
+    this.cy = (flat[34] + flat[37]) / 2;   // (11.y + 12.y) / 2
 
     const v = this._a;
     let ji = 0;
