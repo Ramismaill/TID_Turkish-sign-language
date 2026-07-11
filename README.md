@@ -1,153 +1,139 @@
-# TİD — Çift Yönlü Türk İşaret Dili İletişim Platformu
+# TİD — Bidirectional Turkish Sign Language Communication Platform
 
-**Ders:** FET306 — Uygulamalı Yapay Sinir Ağları, İstanbul Topkapı Üniversitesi
-**Grup üyeleri:**
-- Ram İsmail — 24040301052
-- Muhammet Ay — 23040301137
-
----
-
-## 1. Proje Özeti
-
-Türk İşaret Dili (TİD) ile yazılı Türkçe arasında **iki yönde** köprü kuran bir platform:
-
-- **Tanıma (işaret → Türkçe metin):** Kameradan MediaPipe Holistic ile çıkarılan beden/el
-  landmark'ları, iskelet tabanlı çizge evrişimli ağ **TMS-Net** ile sınıflandırılır
-  (AUTSL, 226 izole işaret, **%94.70** doğrulama doğruluğu). Tahmin edilen işaret gloss'ları,
-  yerel **Qwen2.5-7B** dil modeliyle akıcı Türkçe cümleye çevrilir.
-- **Sentez (Türkçe metin → işaret):** Türkçe metin, hafif biçimbilimsel normalleştirme ile
-  226 kelimelik sözlük üzerinden referans landmark dizilerine eşlenir ve tarayıcıda
-  **sadık iskelet ("Cin Ali") oynatıcısı** ile gerçek zamanlı (30 fps) görüntülenir.
-- **Öz-çalışma (öğretici):** Referans iskelet ile öğrencinin canlı görüntüsü yan yana;
-  **DTW (Dinamik Zaman Bükümlemesi)** ile benzerlik skoru verilir.
-
-İki taraf da ortak bir **iskelet temsili** (64 kare × 225 değer = 33 poz + 21 sol el + 21 sağ el) üzerinde çalışır.
+**Team:**
+- Ram İsmail
+- Muhammet Ay
 
 ---
 
-## 2. Gereksinimler
+## 1. Project Overview
 
-- **Python** (conda ortamı `isaret_dili`) — PyTorch (CUDA), MediaPipe, FastAPI, llama-cpp-python, dtw-python, numpy
-- **Node.js** 18+ (frontend için)
-- **GPU** (önerilen): CUDA destekli NVIDIA (geliştirme: RTX 4060 Laptop; eğitim: RTX 5060 Ti)
-- **Model ağırlıkları / veri** (büyük; depo dışı):
-  - `checkpoints/best.pth` — TMS-Net (%94.70)
-  - `models/llm/qwen2.5-7b-instruct-q4_k_m-*.gguf` — Qwen2.5-7B (2 parça)
-    İndir: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF
-  - `reference_landmarks/*.npy` — 678 referans (226 sınıf × 3)
-  - `class_map.json` — 226 sınıf eşlemesi
+A platform that bridges Turkish Sign Language (TİD) and written Turkish **in both directions**:
 
-### Kurulum
+- **Recognition (sign → Turkish text):** Body/hand landmarks are extracted from the camera with MediaPipe Holistic and classified by the skeleton-based graph convolutional network **TMS-Net** (AUTSL, 226 isolated signs, **94.70%** validation accuracy; **95.13%** with the TMS-Net + SML ensemble). Predicted sign glosses are converted into fluent Turkish sentences by a locally-run **Qwen2.5-7B** language model.
+- **Synthesis (Turkish text → sign):** Turkish text is mapped through light morphological normalization onto a 226-word dictionary of reference landmark sequences and rendered in the browser by a **faithful skeleton ("Cin Ali") player** in real time (30 fps).
+- **Self-study (tutor):** A reference skeleton and the student's live camera feed side by side; **DTW (Dynamic Time Warping)** provides a similarity score.
 
-```bash
-# Python ortamı
-conda env create -f environment.yml        # veya: pip install -r requirements.txt
+Both directions operate on a shared **skeleton representation** (64 frames × 225 values = 33 pose + 21 left hand + 21 right hand).
+
+> **Status:** Final submission complete — this chapter of the project is closed. Design decisions, constraints, and negative results (why rigged-avatar retargeting was abandoned in favor of faithful landmark playback) are documented in the IEEE report.
+
+---
+
+## 2. Requirements
+
+- **Python** (conda environment `isaret_dili`) — PyTorch (CUDA), MediaPipe, FastAPI, llama-cpp-python, dtw-python, numpy
+- **Node.js** 18+ (for the frontend)
+- **GPU** (recommended): CUDA-capable NVIDIA (development: RTX 4060 Laptop; training: RTX 5060 Ti)
+- **Model weights / data** (large; not included in the repo):
+  - `checkpoints/best.pth` — TMS-Net (94.70%)
+  - `models/llm/qwen2.5-7b-instruct-q4_k_m-*.gguf` — Qwen2.5-7B (2 parts)
+    Download: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF
+  - `reference_landmarks/*.npy` — 678 references (226 classes × 3)
+  - `class_map.json` — 226-class mapping
+
+### Installation
+
+# Python environment
+conda env create -f environment.yml        # or: pip install -r requirements.txt
 conda activate isaret_dili
 
-# Frontend bağımlılıkları
+# Frontend dependencies
 cd tid-frontend
 npm install
 cd ..
-```
 
 ---
 
-## 3. Çalıştırma
+## 3. Running
 
-### A) Sentez — Türkçe metin → avatar (web)
+### A) Synthesis — Turkish text → avatar (web)
 
-İki terminal gerekir.
+Two terminals are required.
 
 **Terminal 1 — Backend (FastAPI):**
-```bash
+
 conda activate isaret_dili
 cd C:\sign_language
 uvicorn src.v2.server:app --reload --host 0.0.0.0 --port 8000
-# Açılışta "Loaded 226 signs" görmelisiniz.
-```
+# You should see "Loaded 226 signs" on startup.
 
 **Terminal 2 — Frontend (Vite):**
-```bash
+
 cd C:\sign_language\tid-frontend
 npm run dev
-# Tarayıcı: http://localhost:5173
-```
+# Browser: http://localhost:5173
 
-Bir hazır cümleye tıklayıp **▶ Çevir & Oynat** deyin. Tarayıcı konsolundan canlı ayar:
+Click a preset sentence and press **▶ Çevir & Oynat** (Translate & Play). Live tuning from the browser console:
 `TID.mode = 'skeleton' | 'ik' | 'figure'`, `SKEL.setOpts({ scale, yOffset, zScale })`.
 
-### B) Tanıma + Öğretici (kamera)
+### B) Recognition + Tutor (camera)
 
-Tek terminal yeter. Hepsinden önce:
-```bash
+A single terminal is enough. Before each command:
+
 conda activate isaret_dili
 cd C:\sign_language
-```
 
-**Kelime öğretici (split-screen referans + DTW skor):**
-```bash
+**Word tutor (split-screen reference + DTW score):**
+
 python src\v1\study_autsl_tutor.py --class_map class_map.json ^
   --reference_dir reference_landmarks ^
   --llm_model models\llm\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf --camera 0
-```
 
-**Cümle öğretici (tema bazlı):**
-```bash
+**Sentence tutor (theme-based):**
+
 python src\v1\sentence_tutor.py --class_map class_map.json ^
   --reference_dir reference_landmarks ^
   --llm_model models\llm\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf --camera 0 --theme aile
-```
 
-**Canlı tanıma (kamera → Türkçe cümle):**
-```bash
+**Live recognition (camera → Turkish sentence):**
+
 python src\v1\inference_tmsnet_llm.py --checkpoint checkpoints\best.pth ^
   --class_map class_map.json ^
   --llm_model models\llm\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf --camera 0
-```
 
-> `--camera 0` dahili kamera; harici için `1` deneyin. PowerShell'de satır birleştirici `^`
-> yerine backtick (`` ` ``) kullanın; cmd/Anaconda Prompt'ta yukarıdaki haliyle çalışır.
+> `--camera 0` is the built-in camera; try `1` for an external one. In PowerShell, replace the `^` line continuation with a backtick (`` ` ``); the commands above work as-is in cmd/Anaconda Prompt.
 
 ---
 
-## 4. Klasör Yapısı
+## 4. Repository Structure
 
-```
 sign_language/
 ├── src/
-│   ├── v1/                     # Tanıma + öğretici (PyTorch, MediaPipe, DTW, LLM)
-│   │   ├── tmsnet_model.py     #   TMS-Net (6 akış) — dağıtılan model
-│   │   ├── sml_model.py        #   SML (3 akış)
-│   │   ├── stgcn_model.py      #   ST-GCN (temel)
-│   │   ├── graph.py            #   56-düğüm iskelet çizgesi
-│   │   ├── inference_tmsnet_llm.py   # canlı tanıma → Türkçe
-│   │   ├── study_autsl_tutor.py      # kelime öğretici (DTW)
-│   │   └── sentence_tutor.py         # cümle öğretici
-│   └── v2/                     # Sentez (metin → işaret)
+│   ├── v1/                     # Recognition + tutor (PyTorch, MediaPipe, DTW, LLM)
+│   │   ├── tmsnet_model.py     #   TMS-Net (6 streams) — deployed model
+│   │   ├── sml_model.py        #   SML (3 streams)
+│   │   ├── stgcn_model.py      #   ST-GCN (baseline)
+│   │   ├── graph.py            #   56-node skeleton graph
+│   │   ├── inference_tmsnet_llm.py   # live recognition → Turkish
+│   │   ├── study_autsl_tutor.py      # word tutor (DTW)
+│   │   └── sentence_tutor.py         # sentence tutor
+│   └── v2/                     # Synthesis (text → sign)
 │       ├── server.py           #   FastAPI backend
-│       ├── text_to_sign.py     #   metin → landmark hattı
-│       ├── sign_dictionary.json#   226 kelimelik sözlük
-│       └── expand_dictionary.py#   sözlük üretimi + kalite taraması
-├── tid-frontend/               # Vite + TypeScript + Three.js ön yüz
+│       ├── text_to_sign.py     #   text → landmark pipeline
+│       ├── sign_dictionary.json#   226-word dictionary
+│       └── expand_dictionary.py#   dictionary generation + quality scan
+├── tid-frontend/               # Vite + TypeScript + Three.js frontend
 │   └── src/{main,skeleton,figure,armIK}.ts
-├── checkpoints/                # model ağırlıkları (best.pth = TMS-Net)
+├── checkpoints/                # model weights (best.pth = TMS-Net)
 ├── models/llm/                 # Qwen2.5-7B GGUF
-├── reference_landmarks/        # 678 .npy referans
-├── class_map.json              # 226 sınıf
-└── docs/                       # kararlar, kalite raporu, IEEE rapor üreticisi
-```
+├── reference_landmarks/        # 678 .npy references
+├── class_map.json              # 226 classes
+└── docs/                       # decisions, quality report, IEEE report builder
 
 ---
 
-## 5. Sonuçlar (özet)
+## 5. Results (summary)
 
-| Model | Akış | Doğr. (AUTSL val, 226 sınıf) |
+| Model | Streams | Acc. (AUTSL val, 226 classes) |
 |---|---|---|
-| **TMS-Net** | 6 | **%94.70** (dağıtılan) |
-| SML | 3 | %93.39 |
-| ST-GCN | temel | %89.04 |
+| **TMS-Net + SML Ensemble** | 6 + 3 | **95.13%** (best) |
+| TMS-Net | 6 | 94.70% (deployed) |
+| SML | 3 | 93.39% |
+| ST-GCN | baseline | 89.04% |
 
-- Sentez sözlüğü kalite taraması: 226 kelimenin **216'sı** sorunsuz oynatılabilir.
-- Sadık iskelet oynatıcısı retargeting içermez → her işaret birebir, 30 fps.
+- Synthesis dictionary quality scan: **216 of 226** words play back cleanly.
+- The faithful skeleton player uses no retargeting → every sign is reproduced exactly, at 30 fps.
+- An honest negative result: both angle-based (Kalidokit) and analytic position-based IK retargeting onto a rigged VRM avatar failed to preserve spatial fidelity (the *location* parameter, which is phonological in sign language). Faithful playback was chosen over embodiment — consistent with the literature, where legibility matters more than photorealism.
 
-Ayrıntılar için IEEE raporuna bakın (`TID_Final_Report_EN.docx` / `TID_Final_Raporu_TR.docx`).
+See the IEEE report for details (`TID_Final_Report_EN.docx` / `TID_Final_Raporu_TR.docx`).
