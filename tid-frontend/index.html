@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TID — Türk İşaret Dili Çeviri Platformu</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- Header -->
+      <header>
+        <div>
+          <h1>TİD Avatar Platformu</h1>
+          <div class="subtitle">Türkçe metin → Türk İşaret Dili</div>
+        </div>
+        <div id="status" class="status loading">Başlatılıyor...</div>
+      </header>
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+
+        <!-- Input panel -->
+        <div class="panel">
+          <h2>Metin Girişi</h2>
+          <textarea
+            id="text-input"
+            placeholder="Türkçe yazın... (örn: merhaba, ben seni seviyorum)"
+            spellcheck="false"
+          ></textarea>
+
+          <!-- Preset sentences — her kelime sözlükte çözülür (pipeline ile doğrulandı),
+               kalite raporundaki sorunlu kelimeler (DEGEN/WEAK) kullanılmadı -->
+          <div class="presets">
+            <button class="preset-btn" data-text="merhaba arkadaş">merhaba arkadaş</button>
+            <button class="preset-btn" data-text="ben seni seviyorum">ben seni seviyorum</button>
+            <button class="preset-btn" data-text="teşekkür ederim öğretmen">teşekkür ederim öğretmen</button>
+            <button class="preset-btn" data-text="anne baba çay içmek">anne baba çay içmek</button>
+            <button class="preset-btn" data-text="anne evde yemek">anne evde yemek</button>
+            <button class="preset-btn" data-text="yarın okul var">yarın okul var</button>
+            <button class="preset-btn" data-text="ben hasta yardım">ben hasta yardım</button>
+            <button class="preset-btn" data-text="geçmiş olsun">geçmiş olsun</button>
+            <button class="preset-btn" data-text="afiyet olsun">afiyet olsun</button>
+            <button class="preset-btn" data-text="hoşça kal">hoşça kal</button>
+            <button class="preset-btn" data-text="evet hayır tamam">evet hayır tamam</button>
+            <button class="preset-btn" data-text="dede nine misafir">dede nine misafir</button>
+            <button class="preset-btn" data-text="bayram çocuk hediye">bayram çocuk hediye</button>
+            <button class="preset-btn" data-text="süt içmek iyi">süt içmek iyi</button>
+            <button class="preset-btn" data-text="okulda kitap kalem">okulda kitap kalem</button>
+          </div>
+
+          <button id="play-btn">▶ Çevir &amp; Oynat</button>
+        </div>
+
+        <!-- Now signing -->
+        <div class="panel">
+          <h2>Şu An</h2>
+          <div id="current-word-wrap">
+            <div id="current-word">—</div>
+          </div>
+        </div>
+
+        <!-- Vocabulary -->
+        <div class="panel">
+          <h2>Sözlük (<span id="vocab-count">–</span> kelime)</h2>
+          <div id="vocab-list">
+            <span style="color: var(--text-muted); font-size: 0.8rem;">Yükleniyor...</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- 3D Canvas -->
+      <div id="canvas-wrap">
+        <canvas id="avatar-canvas"></canvas>
+      </div>
+
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+
+    <script>
+      // Preset button handler
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = document.getElementById('text-input');
+          input.value = btn.dataset.text;
+        });
+      });
+    </script>
+  </body>
+</html>
